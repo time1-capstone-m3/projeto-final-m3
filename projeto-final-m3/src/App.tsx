@@ -1,13 +1,16 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import UserProvider from "./context/UserContext/UserContext";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Footer />
-    </div>
+    <UserProvider>
+      <div className="App">
+        <Header />
+        <Footer />
+      </div>
+    </UserProvider>
   );
 }
 
