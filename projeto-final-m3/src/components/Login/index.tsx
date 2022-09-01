@@ -1,4 +1,4 @@
-import Container from "../../styles/style";
+import Container from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../context/UserContext/UserContext";
