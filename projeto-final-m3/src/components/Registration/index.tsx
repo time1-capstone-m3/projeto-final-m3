@@ -2,7 +2,9 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Container from "./style";
-import { UserContext } from '../../context/UseContext'
+import { UserContext } from '../../context/UserContext/UserContext'
+import { useContext } from "react";
+import {RegisterData} from '../../context/UserContext/interfaces'
 
 function Registration() {
   const { registerUser } = useContext(UserContext);
@@ -15,13 +17,13 @@ function Registration() {
       state: yup.string().required("Módulo obrigatório"),
     });  
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm<RegisterData>({
     resolver: yupResolver(formSchema)
   })
 
   return (
     <Container>
-      <form onSubmit={handleSubmit((register) => registerUser<IFormRegister>(register))}>
+      <form onSubmit={handleSubmit((register) => registerUser(register))}>
         <label htmlFor='nome'>Nome</label>
         <input className="grey-input" type="text" placeholder="Digite aqui seu nome" {...register("name")} id='nome'/>
         <span>{errors.name?.message}</span>

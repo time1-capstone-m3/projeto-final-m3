@@ -33,6 +33,7 @@ export interface RegisterData {
   name: string;
   password: string;
   state: string;
+  confirmPassword: string;
 }
 
 export interface EditData {
