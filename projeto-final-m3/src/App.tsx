@@ -1,4 +1,5 @@
 import "./App.css";
+import Card from "./components/Card";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import RoutesMain from "./routes";
@@ -15,9 +16,9 @@ function App() {
       <ToastContainer autoClose={1000}/>
       <Header />
       <Footer />
+      <Card />
     {/* CONTEXTS */}
     </div>
-    
   );
 }
 
