@@ -5,6 +5,7 @@ import RoutesMain from "./routes";
 import GlobalStyle from "./styles/global";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Registration from "./components/Registration";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <RoutesMain/>
       <ToastContainer autoClose={1000}/>
       <Header />
+      <Registration/>
       <Footer />
     {/* CONTEXTS */}
     </div>

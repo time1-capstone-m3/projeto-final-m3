@@ -10,7 +10,7 @@
 
 .grey-input {
   background-color: var(--grey-1);
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1.5px solid var(--grey-1);
   padding: 1rem;
   min-height: 3rem;
