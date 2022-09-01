@@ -1,28 +1,9 @@
+import { useContext } from "react";
+import { ProductContext } from "../../context/productContext";
 import { CardContainer } from "../../styles/card";
-import { useEffect, useState } from "react";
-
-//passar os dados para o contexto de produtos
-
-interface IDados {
-  condition: string;
-  id: number;
-  image: string;
-  isDonated: string;
-  name: string;
-  state: string;
-  userId: number;
-}
 
 const Card = () => {
-  const [product, setProduct] = useState<IDados[]>([]);
-
-  useEffect(() => {
-    fetch(`https://json-server-time1-m3.herokuapp.com/products`)
-      .then((response) => response.json())
-      .then((response) => setProduct(response))
-      .catch((err) => console.log(err));
-  }, []);
-
+  const { product } = useContext(ProductContext);
   return (
     <>
       {product?.map((elem, id) => (
