@@ -14,10 +14,10 @@ function App() {
         <GlobalStyle />
         <RoutesMain />
         <ToastContainer autoClose={1000} />
-        <Header />
-        <Footer />
-        <Card />
-        <LoginRegister/>
+        {/* <Header />
+        <Footer />*/}
+
+        {/* <LoginRegister/> */}
       </ProductProvider>
       </UserProvider>
     </div>

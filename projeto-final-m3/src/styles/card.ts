@@ -4,7 +4,7 @@ export const CardContainer = styled.li`
   background-color: #ffffff;
   box-shadow: 0px 4px 4px 0px #00000040;
   width: 18rem;
-  height: 25.7rem;
+  height: 27rem;
   list-style: none;
   border-radius: 16px;
 

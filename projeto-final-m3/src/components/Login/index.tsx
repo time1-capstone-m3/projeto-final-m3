@@ -2,10 +2,11 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Container from "./style";
-import { UserContext } from '../../context/UseContext'
+import { UserContext } from '../../context/UserContext/UserContext'
+import { useContext } from "react";
 
 function Login() {
-  const { onSubmitLogin } = useContext(UserContext);
+  const { login } = useContext(UserContext);
 
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email('Deve ser um e-mail'),
@@ -18,7 +19,7 @@ function Login() {
 
   return (
     <Container>
-      <form onSubmit={handleSubmit((register) => onSubmitLogin(register))}>
+      <form onSubmit={handleSubmit((register) => login(register))}>
         <label className="title4" htmlFor="email">E-mail</label>
         <input className="grey-input" type="text" placeholder="E-mail" {...register('email')} id='email'/>
         <span>{errors.email?.message}</span>
