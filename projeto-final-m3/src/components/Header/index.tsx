@@ -1,4 +1,4 @@
-import { HeaderContainer } from "../../styles/header";
+import { HeaderContainer } from "./style";
 
 const Header = () => {
   return (

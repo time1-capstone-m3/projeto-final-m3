@@ -38,8 +38,6 @@ const UserProvider = ({ children }: UserProps) => {
       .catch((err) => console.log(err));
   };
 
-  console.log("Estado do usuário: ", user);
-
   const edit = async (data: EditData) => {
     const token = JSON.parse(localStorage.getItem("@token") || "");
     const user = JSON.parse(localStorage.getItem("@user") || "");
@@ -62,7 +60,7 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout }}>
+    <UserContext.Provider value={{ registerUser, login, edit, logout, user }}>
       {children}
     </UserContext.Provider>
   );

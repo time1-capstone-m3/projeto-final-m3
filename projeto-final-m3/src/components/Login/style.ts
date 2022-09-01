@@ -3,13 +3,21 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 402px;
   height: 369px;
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow);
-  border-radius: 10px;
+
+  border-radius: 0 0 10px 10px;
 
   form {
     height: 310px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     margin: auto;
   }
 
@@ -21,7 +29,11 @@ const Container = styled.div`
   label {
     color: var(--grey-4);
     font-weight: 600;
-    margin: 25px 240px 4px -33px;
+
+    margin: 20px 285px 5px 15px;
+  }
+
+  span {
   }
 
   button {
