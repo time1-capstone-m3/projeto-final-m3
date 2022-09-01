@@ -5,7 +5,7 @@ const Footer = () => {
     <FooterContainer>
       <p>
         Desenvolvido por 
-        <strong>
+        <strong className="bold">
           Ângelo Coêlho, Ezequiel Silva, Helena Gomes, José Henrique, Matheus
           Menezes e Pedro Feitosa.
         </strong>
