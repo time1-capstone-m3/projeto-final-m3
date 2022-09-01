@@ -1,9 +1,9 @@
 import UserProvider from "./context/UserContext/UserContext";
-import LoginRegister from "./pages";
 import RoutesMain from "./routes";
 import GlobalStyle from "./styles/global";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Registration from "./components/Registration";
 import ProductProvider from "./context/productContext";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Header />
         <Footer />
         <Card />
-        <LoginRegister/>
+        <Registration/>
       </ProductProvider>
       </UserProvider>
     </div>
