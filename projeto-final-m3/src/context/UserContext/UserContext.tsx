@@ -15,8 +15,9 @@ const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
 
   const registerUser = async (data: RegisterData) => {
+    const { confirmPassword, ...remaining } = data;
     await api
-      .post("/register", data)
+      .post("/register", remaining)
       .then((res) => {
         console.log("Usuário Registrado: ", res);
       })
