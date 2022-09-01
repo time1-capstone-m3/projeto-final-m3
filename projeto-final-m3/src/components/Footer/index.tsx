@@ -1,11 +1,11 @@
-import { FooterContainer } from "../../Style/footer";
+import { FooterContainer } from "../../styles/footer";
 
 const Footer = () => {
   return (
     <FooterContainer>
       <p>
         Desenvolvido por 
-        <strong>
+        <strong className="bold">
           Ângelo Coêlho, Ezequiel Silva, Helena Gomes, José Henrique, Matheus
           Menezes e Pedro Feitosa.
         </strong>
