@@ -1,27 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
-
-interface ProductProps {
-  children: ReactNode;
-}
-
-interface ProducProviderData {
-  product: IProduct[];
-  cardDestaque: () => void;
-}
-
-export const ProductContext = createContext<ProducProviderData>(
-  {} as ProducProviderData
-);
-
-interface IProduct {
-  condition: string;
-  id: number;
-  image: string;
-  isDonated: string;
-  name: string;
-  state: string;
-  userId: number;
-}
+import { useEffect, useState } from "react";
+import { ProductProps, ProductContext, IProduct } from "./interfaces";
 
 function ProductProvider({ children }: ProductProps) {
   const [product, setProduct] = useState<IProduct[]>([]);

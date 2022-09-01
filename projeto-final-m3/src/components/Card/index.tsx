@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProductContext } from "../../context/productContext";
+import { ProductContext } from "../../context/ProductContext/productContext";
 import { CardContainer } from "../../styles/card";
 
 const Card = () => {
