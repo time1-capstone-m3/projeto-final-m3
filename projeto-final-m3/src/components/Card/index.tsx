@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
-import { CardContainer } from "../../styles/card";
+import { CardContainer } from "./style";
 
 const Card = () => {
   const { product } = useContext(ProductContext);
