@@ -12,3 +12,4 @@ const RoutesMain = () => {
 }
 
 export default RoutesMain;
+
