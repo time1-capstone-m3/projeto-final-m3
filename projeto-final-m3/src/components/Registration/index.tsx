@@ -1,47 +1,69 @@
-import * as yup from "yup";
+import Container from "../../styles/registration";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Container from "./style";
-import { UserContext } from '../../context/UserContext/UserContext'
+import { UserContext } from "../../context/UserContext/UserContext";
 import { useContext } from "react";
-import {RegisterData} from '../../context/UserContext/interfaces'
+import { RegisterData } from "../../context/UserContext/interfaces";
+import { formSchemaResgistration } from "../../validations/Registration";
 
 function Registration() {
   const { registerUser } = useContext(UserContext);
 
-  const formSchema = yup.object().shape({
-      name: yup.string().required("Nome obrigatório"),
-      email: yup.string().required("E-mail obrigatório"),
-      password: yup.string().required("Senha Obrigatória").matches(/(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*_-])).{8,}$/, "A senha precisa ter pelo menos uma letra maiúscula, uma minúscula, um dígito e um carácter"),
-      confirmPassword: yup.string().required("Confirmação obrigatória").oneOf([yup.ref("password")], "Confirmação precisa ser igual a senha"),
-      state: yup.string().required("Módulo obrigatório"),
-    });  
-
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterData>({
-    resolver: yupResolver(formSchema)
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterData>({
+    resolver: yupResolver(formSchemaResgistration),
+  });
 
   return (
     <Container>
-      <form onSubmit={handleSubmit((register) => registerUser(register))}>
-        <label htmlFor='nome'>Nome</label>
-        <input className="grey-input" type="text" placeholder="Digite aqui seu nome" {...register("name")} id='nome'/>
+      <form onSubmit={handleSubmit(registerUser)}>
+        <label htmlFor="nome">Nome</label>
+        <input
+          className="grey-input"
+          type="text"
+          placeholder="Digite aqui seu nome"
+          {...register("name")}
+          id="nome"
+        />
         <span>{errors.name?.message}</span>
 
-        <label htmlFor='email'>Email</label>
-        <input className="grey-input" type="text" placeholder="Email" {...register("email")} id='email'/>
+        <label htmlFor="email">Email</label>
+        <input
+          className="grey-input"
+          type="text"
+          placeholder="Email"
+          {...register("email")}
+          id="email"
+        />
         <span>{errors.email?.message}</span>
 
-        <label htmlFor='senha'>Senha</label>
-        <input className="grey-input" type="password" placeholder="Digite sua senha" {...register("password")} id='senha'/>
+        <label htmlFor="senha">Senha</label>
+        <input
+          className="grey-input"
+          type="password"
+          placeholder="Digite sua senha"
+          {...register("password")}
+          id="senha"
+        />
         <span>{errors.password?.message}</span>
 
-        <label htmlFor='confirmacaoSenha'>Senha</label>
-        <input className="grey-input" type="password" placeholder="Digite novamente sua senha" {...register("confirmPassword")} id='confirmacaoSenha'/>
+        <label htmlFor="confirmacaoSenha">Senha</label>
+        <input
+          className="grey-input"
+          type="password"
+          placeholder="Digite novamente sua senha"
+          {...register("confirmPassword")}
+          id="confirmacaoSenha"
+        />
         <span>{errors.password?.message}</span>
 
-        <label className="labelState" htmlFor="estado">Estado</label>
-        <select className="grey-input" id="estado" {...register('state')}>
+        <label className="labelState" htmlFor="estado">
+          Estado
+        </label>
+        <select className="grey-input" id="estado" {...register("state")}>
           <option value="AC">Acre</option>
           <option value="AL">Alagoas</option>
           <option value="AP">Amapá</option>
@@ -78,7 +100,6 @@ function Registration() {
       </form>
     </Container>
   );
-
 }
 
 export default Registration;
