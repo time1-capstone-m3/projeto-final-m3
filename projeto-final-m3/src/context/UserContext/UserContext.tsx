@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import {
   LoginData,
@@ -34,11 +34,11 @@ const UserProvider = ({ children }: UserProps) => {
 
         console.log(res.data.user);
         setUser(res.data.user);
-
-        console.log(user);
       })
       .catch((err) => console.log(err));
   };
+
+  console.log("Estado do usuário: ", user);
 
   const edit = async (data: EditData) => {
     const token = JSON.parse(localStorage.getItem("@token") || "");
