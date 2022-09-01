@@ -1,26 +1,26 @@
-import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import UserProvider from "./context/UserContext/UserContext";
 import RoutesMain from "./routes";
 import GlobalStyle from "./styles/global";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Registration from "./components/Registration";
+import ProductProvider from "./context/productContext";
 
 function App() {
   return (
     <div className="App">
-    {/* CONTEXTS */}
-      <GlobalStyle />
-      <RoutesMain/>
-      <ToastContainer autoClose={1000}/>
-      <Header />
-      <Registration/>
-      <Footer />
-    {/* CONTEXTS */}
+     <UserProvider>
+      <ProductProvider>
+        <GlobalStyle />
+        <RoutesMain />
+        <ToastContainer autoClose={1000} />
+        <Header />
+        <Footer />
+        <Card />
+        <Registration/>
+      </ProductProvider>
+      </UserProvider>
     </div>
-    
   );
 }
-
 export default App;
