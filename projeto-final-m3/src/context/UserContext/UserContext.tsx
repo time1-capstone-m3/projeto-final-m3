@@ -34,11 +34,10 @@ const UserProvider = ({ children }: UserProps) => {
 
         console.log(res.data.user);
         setUser(res.data.user);
-
-        console.log(user);
       })
       .catch((err) => console.log(err));
   };
+
 
   const edit = async (data: EditData) => {
     const token = JSON.parse(localStorage.getItem("@token") || "");
@@ -62,7 +61,7 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout }}>
+    <UserContext.Provider value={{ registerUser, login, edit, logout, user }}>
       {children}
     </UserContext.Provider>
   );

@@ -9,6 +9,7 @@ export interface IUserProvider {
   edit: (data: EditData) => void;
   login: (data: LoginData) => void;
   logout: () => void;
+  user: UserData | null;
 }
 
 export interface UserData {
