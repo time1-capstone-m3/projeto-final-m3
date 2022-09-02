@@ -1,5 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import api from "../../services/api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   LoginData,
   RegisterData,
@@ -13,6 +15,7 @@ export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 
 const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
+  const [loginUser, setLoginUser] = useState(true);
 
   const registerUser = async (data: RegisterData) => {
     const { confirmPassword, ...remaining } = data;
@@ -20,8 +23,13 @@ const UserProvider = ({ children }: UserProps) => {
       .post("/register", remaining)
       .then((res) => {
         console.log("Usuário Registrado: ", res);
+        toast.success("Usuário criado com sucesso!");
+        setLoginUser(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("Dados incorretos!");
+        console.log(err)
+      });
   };
 
   const login = async (data: LoginData) => {
@@ -60,7 +68,7 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout, user }}>
+    <UserContext.Provider value={{ registerUser, login, edit, logout, user, loginUser, setLoginUser }}>
       {children}
     </UserContext.Provider>
   );

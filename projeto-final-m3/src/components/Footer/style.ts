@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   background-color: #cecece;
   bottom: 0;
   width: 100%;
-  height: 3rem;
   text-align: center;
   font-size: 13px;
   p {

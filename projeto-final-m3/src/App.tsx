@@ -13,11 +13,11 @@ function App() {
       <UserProvider>
         <ProductProvider>
           <GlobalStyle />
-          <RoutesMain />
-          <ToastContainer autoClose={1000} />
-          {/* <Header /> */}
-          {/* <Footer /> */}
-          {/* <Card /> */}
+          <RoutesMain />         
+          <ToastContainer autoClose={1500} position={'top-right'} hideProgressBar={false} closeOnClick={true} pauseOnHover={true} draggable={true}/>
+          {/* <Header />
+          <Footer />
+          <Card /> */}
           {/* <Registration /> */}
         </ProductProvider>
       </UserProvider>
