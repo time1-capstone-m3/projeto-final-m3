@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 400px;
-  height: 760px;
+  height: 107vh;
+
   margin: 0px auto;
 
   display: flex;
@@ -35,6 +36,11 @@ const Container = styled.div`
 
   .labelState {
     margin: 19px 240px 5px -23px;
+  }
+
+  span{
+    color: red;
+    font-size: 13px;
   }
 
   input {
