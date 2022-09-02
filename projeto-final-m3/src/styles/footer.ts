@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  position: fixed;
-  bottom: 0;
   background-color: #cecece;
+  bottom: 0;
   width: 100%;
   height: 3rem;
   text-align: center;
