@@ -5,6 +5,8 @@ import Registration from "../../components/Registration";
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import {Container , ContainerPai } from "./style";
+import {HiUserAdd} from 'react-icons/hi'
+import {FiLogIn} from 'react-icons/fi'
 
 function LoginRegister(){
   const [login, setLogin] = useState(true)
@@ -13,18 +15,18 @@ function LoginRegister(){
     <>
       <ContainerPai>
         <Container>
-          <img src={logoLogin} alt="Logo da desapega" />
+          <img className="LogoInicial" src={logoLogin} alt="Logo da desapega" />
           <section>
             <button onClick={(e) => {
               e.preventDefault();
               setLogin(true);
               
-            }} className='login buttonInitial' autoFocus>Login</button>
+            }} className='login buttonInitial' autoFocus><FiLogIn/>Login</button>
             <button onClick={(e) => {
               e.preventDefault();
               setLogin(false);
 
-            }} className='buttonInitial'>Cadastro</button>
+            }} className='buttonInitial'><HiUserAdd />Cadastro</button>
           </section>
           {login? <Login /> : <Registration />}
         </Container>

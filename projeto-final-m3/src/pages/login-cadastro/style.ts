@@ -5,7 +5,8 @@ export const ContainerPai = styled.div`
   margin: 0 auto;
   
   max-width: 1100px;
-  align-items: center;
+  max-height: 1150px;
+  align-items: flex-start;
 
   .img {
     display: none;
@@ -29,7 +30,7 @@ export const ContainerPai = styled.div`
 
   @media (min-width: 1050px) {
     .img{
-      margin: 0;
+      margin: 170px 0 0 0;
     }
     
   }
@@ -37,7 +38,7 @@ export const ContainerPai = styled.div`
 
 export const Container = styled.div`
   width: 402px;
-  height: 840px;
+  height: 985px;
 
   display: flex;
   flex-direction: column;
@@ -45,10 +46,10 @@ export const Container = styled.div`
 
   margin: auto;
 
-  transition: .3s;
+  transition: 0.3s;
 
-  img {
-    padding: 50px 0;
+  .LogoInicial {
+    padding: 20px 0 40px 0;
   }
 
   .buttonInitial {
@@ -58,6 +59,11 @@ export const Container = styled.div`
 
     border-radius: 0px 10px 0px 0px;
     border-bottom: 3px solid rgba(78, 171, 63, 1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
   }
 
   button:focus {
@@ -76,6 +82,4 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
   }
-
-
 `;
