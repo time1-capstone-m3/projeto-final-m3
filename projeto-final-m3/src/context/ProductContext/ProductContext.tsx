@@ -21,8 +21,43 @@ function ProductProvider({ children }: ProductProps) {
     }
   };
 
+  const [filterAll, setFilterAll] = useState(true);
+  const [filterPcs, setFilterPcs] = useState(false);
+  const [filterSmartphones, setFilterSmartphone] = useState(false);
+  const [filterAcessorios, setFilterAcessorios] = useState(false);
+  const [filterOutros, setFilterOutros] = useState(false);
+
+  const handleFilter = () => {
+    if (filterPcs) {
+      return product.filter(({ category }) => category === "Computadores");
+    }
+    if (filterSmartphones) {
+      return product.filter(({ category }) => category === "Smartphones");
+    }
+    if (filterAcessorios) {
+      return product.filter(({ category }) => category === "Acessórios");
+    }
+    if (filterOutros) {
+      return product.filter(({ category }) => category === "Outros");
+    }
+    if (filterAll) {
+      return product;
+    }
+  };
+
   return (
-    <ProductContext.Provider value={{ product, cardDestaque }}>
+    <ProductContext.Provider
+      value={{
+        product,
+        cardDestaque,
+        handleFilter,
+        setFilterAll,
+        setFilterPcs,
+        setFilterSmartphone,
+        setFilterAcessorios,
+        setFilterOutros,
+      }}
+    >
       {children}
     </ProductContext.Provider>
   );
