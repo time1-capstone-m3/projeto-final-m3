@@ -6,6 +6,7 @@ export const ContainerPai = styled.div`
   
   max-width: 1100px;
   max-height: 1150px;
+  height: 1200px;
   align-items: flex-start;
 
   .img {

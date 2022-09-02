@@ -18,7 +18,7 @@ function App() {
         <ProductProvider>
           <GlobalStyle />
           <RoutesMain />
-          <ToastContainer autoClose={1000} />
+          <ToastContainer autoClose={1500} position={'top-right'} hideProgressBar={false} closeOnClick={true} pauseOnHover={true} draggable={true}/>
           {/* <Header />
           <Footer />
           <Card /> */}

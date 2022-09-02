@@ -9,6 +9,8 @@ export interface IUserProvider {
   login: (data: LoginData) => void;
   logout: () => void;
   user: UserData | null;
+  loginUser: boolean;
+  setLoginUser: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export interface UserData {
   email: string;
