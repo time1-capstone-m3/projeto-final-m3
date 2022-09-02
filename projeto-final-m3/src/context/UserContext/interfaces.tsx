@@ -30,6 +30,8 @@ export interface RegisterData {
   password: string;
   state: string;
   confirmPassword: string;
+  tel: string;
+  imgUrl: string;
 }
 export interface EditData {
   email: string;
