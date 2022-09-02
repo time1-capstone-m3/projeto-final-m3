@@ -22,13 +22,13 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/register", remaining)
       .then((res) => {
-        console.log("Usuário Registrado: ", res);
+        console.log(res);
         toast.success("Usuário criado com sucesso!");
         setLoginUser(true);
       })
       .catch((err) => {
         toast.error("Dados incorretos!");
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -36,11 +36,9 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/", data)
       .then((res) => {
-        console.log("Logou!!");
+        console.log(res);
         localStorage.setItem("@token", JSON.stringify(res.data.accessToken));
         localStorage.setItem("@user", JSON.stringify(res.data.user));
-
-        console.log(res.data.user);
         setUser(res.data.user);
       })
       .catch((err) => console.log(err));
@@ -57,7 +55,8 @@ const UserProvider = ({ children }: UserProps) => {
         },
       })
       .then((res) => {
-        console.log("Mudou: ", res);
+        console.log(res);
+        setUser(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -68,7 +67,17 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout, user, loginUser, setLoginUser }}>
+    <UserContext.Provider
+      value={{
+        registerUser,
+        login,
+        edit,
+        logout,
+        user,
+        loginUser,
+        setLoginUser,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
