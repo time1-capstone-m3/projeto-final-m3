@@ -4,12 +4,8 @@ import RoutesMain from "./routes";
 import GlobalStyle from './styles/global'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import Registration from "./components/Registration";
 import ProductProvider from "./context/ProductContext/ProductContext";
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
-// import Card from "./components/Card";
-import LoginRegister from './pages/login-cadastro'
+
 
 function App() {
   return (
@@ -17,14 +13,12 @@ function App() {
       <UserProvider>
         <ProductProvider>
           <GlobalStyle />
-          <RoutesMain />
+          <RoutesMain />         
           <ToastContainer autoClose={1500} position={'top-right'} hideProgressBar={false} closeOnClick={true} pauseOnHover={true} draggable={true}/>
           {/* <Header />
           <Footer />
           <Card /> */}
           {/* <Registration /> */}
-
-          <LoginRegister />
         </ProductProvider>
       </UserProvider>
     </div>

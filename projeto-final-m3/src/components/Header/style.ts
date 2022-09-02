@@ -5,8 +5,8 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 7.5rem;
   div {
-    max-width: 90%;
-    margin-left: 5%;
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     img {
