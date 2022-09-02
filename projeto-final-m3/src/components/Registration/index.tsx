@@ -30,6 +30,14 @@ function Registration() {
         />
         <span>{errors.name?.message}</span>
 
+        <label htmlFor="img" className="labelImg" >Foto do perfil</label>
+        <input className="grey-input" type="text" placeholder="Adicione o link da imagem" {...register('imgUrl')} id='img'/>
+        <span>{errors.imgUrl?.message}</span>
+
+        <label htmlFor="tel">Telefone</label>
+        <input className="grey-input" type="text" placeholder="Ex: 61 982937182" {...register('tel')} id='tel'/>
+        <span>{errors.tel?.message}</span>
+
         <label htmlFor="email">Email</label>
         <input
           className="grey-input"

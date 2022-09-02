@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 400px;
-  height: 615px;
+  height: 760px;
   margin: 0px auto;
 
   display: flex;
@@ -26,6 +26,11 @@ const Container = styled.div`
     font-size: 0.75rem;
 
     margin: 20px 285px 5px 15px;
+  }
+
+  .labelImg {
+    width: 90px;
+    margin: 20px 243px 5px 15px;
   }
 
   .labelState {
