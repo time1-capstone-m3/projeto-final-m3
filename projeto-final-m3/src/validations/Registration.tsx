@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 export const formSchemaResgistration = yup.object().shape({
   name: yup.string().required("Nome obrigatório"),
-  email: yup.string().required("E-mail obrigatório").matches(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i, 'email precisa ser "teste@teste.com"'),
+  email: yup.string().required("E-mail obrigatório").matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g, 'email precisa ser "teste@teste.com"'),
   password: yup
     .string()
     .required("Senha Obrigatória")
