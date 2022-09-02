@@ -1,11 +1,10 @@
 import { useContext } from 'react';
-import { ProductContext } from '../../context/productContext';
+import { ProductContext } from '../../context/ProductContext/interfaces';
 import CardPrincipalLi from './style';
 import {BiLocationPlus} from 'react-icons/bi'
 
 const CardPrincipal = () => {
     const { cardDestaquePosition } = useContext(ProductContext);
-    console.log(cardDestaquePosition);
     return (
         <>
             {cardDestaquePosition.map((elem, id) => {

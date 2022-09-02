@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import {
   LoginData,
@@ -34,8 +34,6 @@ const UserProvider = ({ children }: UserProps) => {
 
         console.log(res.data.user);
         setUser(res.data.user);
-
-        console.log(user);
       })
       .catch((err) => console.log(err));
   };
@@ -62,7 +60,7 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout }}>
+    <UserContext.Provider value={{ registerUser, login, edit, logout, user }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { ProductContext } from '../../context/productContext';
-import { CardContainer } from '../../styles/card';
-import iconLocation from '../../assets/iconeLocation.png';
+import { ProductContext } from '../../context/ProductContext/interfaces';
+import { CardContainer } from './style'
 import {BiLocationPlus} from 'react-icons/bi'
 
 const Card = () => {
