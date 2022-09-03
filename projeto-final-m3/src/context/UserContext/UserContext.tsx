@@ -44,6 +44,7 @@ const UserProvider = ({ children }: UserProps) => {
         setUser(res.data.user);
         toast.success("Logado com sucesso!");
         navigate("/dashboard");
+        console.log("bugfix");
       })
       .catch((err) => console.log(err));
   };
