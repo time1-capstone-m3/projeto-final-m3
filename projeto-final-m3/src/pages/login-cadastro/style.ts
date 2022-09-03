@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const ContainerPai = styled.div`
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 15px;
   
   max-width: 1100px;
   max-height: 1150px;
-  height: 1200px;
   align-items: flex-start;
 
   .img {
@@ -39,7 +38,8 @@ export const ContainerPai = styled.div`
 
 export const Container = styled.div`
   width: 402px;
-  height: 985px;
+  min-height: 450px;
+  max-height: 985px;
 
   display: flex;
   flex-direction: column;
