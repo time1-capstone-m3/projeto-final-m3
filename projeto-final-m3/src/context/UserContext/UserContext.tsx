@@ -36,7 +36,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const login = async (data: LoginData) => {
     await api
-      .post("/", data)
+      .post("/login", data)
       .then((res) => {
         console.log(res);
         localStorage.setItem("@token", JSON.stringify(res.data.accessToken));
