@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
   width: 100%;
   text-align: center;
   font-size: 13px;
+  margin-top: 48px;
   p {
     margin: 0;
     padding: 1rem;

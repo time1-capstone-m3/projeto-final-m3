@@ -16,6 +16,11 @@
   min-height: 3rem;
   width: 100%;
   transition: 0.3s;
+  margin: 5px 0 18px;
+}
+
+.grey-input.big-input {
+  min-height: 11.5rem;
 }
 
 ::placeholder {
@@ -26,12 +31,12 @@
 }
 
 .grey-input:focus {
-  border: 1.5px solid var(--grey-4);
+  border: 1.5px solid var(--grey-3);
   box-shadow: var(--shadow);
 }
 
 .grey-input:hover::placeholder {
-  color: var(--grey-3);
+  color: var(--grey-4);
   padding-left: 6px;
 }
 
