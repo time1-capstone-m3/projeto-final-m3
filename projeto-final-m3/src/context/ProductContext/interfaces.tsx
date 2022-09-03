@@ -6,13 +6,10 @@ export interface ProductProps {
 
 export interface ProducProviderData {
   product: IProduct[];
-  handleFilter: () => void;
-  setFilterAll: React.Dispatch<React.SetStateAction<boolean>>;
-  setFilterPcs: React.Dispatch<React.SetStateAction<boolean>>;
-  setFilterSmartphone: React.Dispatch<React.SetStateAction<boolean>>;
-  setFilterAcessorios: React.Dispatch<React.SetStateAction<boolean>>;
-  setFilterOutros: React.Dispatch<React.SetStateAction<boolean>>;
+  search: string;
+  setSearch: (data: string) => void;
   cardDestaquePosition: IProduct[];
+  arrayFilter: IProduct[];
 }
 
 export const ProductContext = createContext<ProducProviderData>(
