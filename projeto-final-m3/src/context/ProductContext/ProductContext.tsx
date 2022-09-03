@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import api from "../../services/api";
 import { ProductProps, ProductContext, IProduct } from "./interfaces";
 
 function ProductProvider({ children }: ProductProps) {
@@ -7,53 +8,36 @@ function ProductProvider({ children }: ProductProps) {
     []
   );
 
+  const [search, setSearch] = useState("");
+
+  const arrayFilter = product.filter(
+    (product) =>
+      product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
+      product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
   useEffect(() => {
-    fetch(`https://json-server-time1-m3.herokuapp.com/products`)
-      .then((response) => response.json())
-      .then((response) => setProduct(response))
+    api
+      .get("/products")
+      .then((res) => {
+        setProduct(res.data);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  }, [product]);
 
   useEffect(() => {
     const cardPosition = product.filter((elem) => elem.id === 1);
     setcardDestaquePosition(cardPosition);
   }, [product]);
 
-  const [filterAll, setFilterAll] = useState(true);
-  const [filterPcs, setFilterPcs] = useState(false);
-  const [filterSmartphones, setFilterSmartphone] = useState(false);
-  const [filterAcessorios, setFilterAcessorios] = useState(false);
-  const [filterOutros, setFilterOutros] = useState(false);
-
-  const handleFilter = () => {
-    if (filterPcs) {
-      return product.filter(({ category }) => category === "Computadores");
-    }
-    if (filterSmartphones) {
-      return product.filter(({ category }) => category === "Smartphones");
-    }
-    if (filterAcessorios) {
-      return product.filter(({ category }) => category === "Acessórios");
-    }
-    if (filterOutros) {
-      return product.filter(({ category }) => category === "Outros");
-    }
-    if (filterAll) {
-      return product;
-    }
-  };
-
   return (
     <ProductContext.Provider
       value={{
         product,
         cardDestaquePosition,
-        handleFilter,
-        setFilterAll,
-        setFilterPcs,
-        setFilterSmartphone,
-        setFilterAcessorios,
-        setFilterOutros,
+        search,
+        setSearch,
+        arrayFilter,
       }}
     >
       {children}
