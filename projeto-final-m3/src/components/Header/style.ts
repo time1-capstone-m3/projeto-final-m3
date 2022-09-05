@@ -6,7 +6,6 @@ export const HeaderContainer = styled.div`
   height: 7.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 
     .img-logo {
       margin-top: 0.8rem;

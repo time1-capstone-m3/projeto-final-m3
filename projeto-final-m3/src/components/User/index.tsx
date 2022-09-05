@@ -1,28 +1,56 @@
-import useDropdownMenu from 'react-accessible-dropdown-menu-hook';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserContext';
-import { Container } from './styles';
+import { Button, Container, LinkNav } from './styles';
 import { useContext } from 'react';
-import teste from '../../assets/teste.svg'
+import { AiOutlineDown } from 'react-icons/ai';
+import { BsArrowBarRight } from 'react-icons/bs';
+import { FaUserEdit } from 'react-icons/fa';
+import { useState } from 'react';
 
 const User = () => {
-    const { buttonProps, itemProps, isOpen } = useDropdownMenu(2);
     const { user } = useContext(UserContext);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <Container>
-            <div>
-                <button {...buttonProps}>
-                    {user ? user.nome : 'Entre ou cadastra-se'}
-                    <img src={teste} alt="" />
-                </button>
-                <div className={isOpen ? 'visible' : ''} role="menu">
-                    <a {...itemProps[0]} href="https://example.com">
-                        Acessar perfil
-                    </a>
-                    <Link to="/" {...itemProps[1]}>
-                        Sair
-                    </Link>
+            <div className="container-user">
+                <div className="button-container-user">
+                    <button
+                        className="button-user"
+                        onClick={() => {
+                            setIsOpen(!isOpen);
+                        }}
+                    >
+                        {user ? (
+                            <div className="nome-user">
+                                <AiOutlineDown size={16} />
+                                <p>{user.nome}</p>
+                                <img
+                                    className="img-user"
+                                    src={user.imgUrl}
+                                    alt="foto de perfil"
+                                />
+                            </div>
+                        ) : (
+                            <LinkNav className="linknav-top" to="/">
+                                Entre ou cadastre-se
+                            </LinkNav>
+                        )}
+                    </button>
+                </div>
+
+                <div className={isOpen ? 'visible' : 'invisible'}>
+                    <Button>
+                        <LinkNav to="/">
+                            <FaUserEdit />
+                            <p>Acessar perfil</p>
+                        </LinkNav>
+                    </Button>
+                    <Button>
+                        <LinkNav to="/">
+                            <BsArrowBarRight />
+                            <p>Sair</p>
+                        </LinkNav>
+                    </Button>
                 </div>
             </div>
         </Container>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardContainer = styled.li`
     background-color: #ffffff;
     box-shadow: var(--shadow);
-    width: 20rem;
+    width: calc(100%/3 - 2rem);
     height: 23rem;
     list-style: none;
     border-radius: 16px;
