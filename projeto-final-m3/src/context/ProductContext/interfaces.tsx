@@ -13,6 +13,12 @@ export interface ProducProviderData {
   setFilterAcessorios: React.Dispatch<React.SetStateAction<boolean>>;
   setFilterOutros: React.Dispatch<React.SetStateAction<boolean>>;
   cardDestaquePosition: IProduct[];
+  createProduct: (
+    formData: IProductForm,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ProductContext = createContext<ProducProviderData>(
@@ -26,6 +32,15 @@ export interface IProduct {
   isDonated: string;
   name: string;
   state: string;
-  userId: number;
+  userId: string;
+  category: string;
+  description: string;
+}
+
+export interface IProductForm {
+  name: string;
+  description: string;
+  image: string;
+  state: string;
   category: string;
 }

@@ -21,6 +21,8 @@
 
 .grey-input.big-input {
   min-height: 11.5rem;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 ::placeholder {
@@ -61,6 +63,11 @@ button {
   border-radius: 30px;
   padding: 1rem 2rem;
   transition: 0.3s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--grey-3);
 }
 
 .bg-dark {

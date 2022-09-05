@@ -1,11 +1,28 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import Form from "../../Form";
+import FormContainer from "../../components/Form";
 import { Wrapper } from "../Dashboard/style";
 import DesapegoContainer from "./style";
 import contentCadastro from "../../assets/content-cadastro-produto.svg";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  IProductForm,
+  ProductContext,
+} from "../../context/ProductContext/interfaces";
+import { formSchemaProduct } from "../../validations/Product";
+import { useContext } from "react";
 
 const Desapego = () => {
+  const { loading, setLoading, createProduct } = useContext(ProductContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IProductForm>({
+    resolver: yupResolver(formSchemaProduct),
+  });
+
   return (
     <Wrapper>
       <Header />
@@ -17,71 +34,82 @@ const Desapego = () => {
           </h1>
         </section>
         <section className="form-section">
-          <Form>
-            <label htmlFor="name" className="title4 semibold">
-              Nome do produto
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Nome do produto"
-              className="grey-input"
-            />
+          <FormContainer>
+            <form
+              onSubmit={handleSubmit((formData) =>
+                createProduct(formData, setLoading)
+              )}
+            >
+              <label htmlFor="name" className="title4 semibold">
+                Nome do produto
+              </label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Nome do produto"
+                className="grey-input"
+                {...register("name")}
+              />
+              <span>{errors.name?.message}</span>
 
-            <label htmlFor="description" className="title4 semibold">
-              Descrição
-            </label>
-            <textarea
-              name="description"
-              id="description"
-              placeholder="Detalhe sobre o seu produto e suas condições de uso"
-              className="grey-input big-input"
-            />
+              <label htmlFor="description" className="title4 semibold">
+                Descrição
+              </label>
+              <textarea
+                id="description"
+                placeholder="Detalhe sobre o seu produto e suas condições de uso"
+                className="grey-input big-input"
+                {...register("description")}
+              />
+              <span>{errors.description?.message}</span>
 
-            <label htmlFor="image" className="title4 semibold">
-              Foto do produto
-            </label>
-            <input
-              type="text"
-              name="image"
-              id="image"
-              placeholder="URL da foto do produto"
-              className="grey-input"
-            />
+              <label htmlFor="image" className="title4 semibold">
+                Foto do produto
+              </label>
+              <input
+                type="text"
+                id="image"
+                placeholder="URL da foto do produto"
+                className="grey-input"
+                {...register("image")}
+              />
+              <span>{errors.image?.message}</span>
 
-            <div className="flex-column">
-              <div>
-                <label htmlFor="state" className="title4 semibold">
-                  Estado de uso
-                </label>
-                <select name="state" id="state" className="grey-input">
-                  <option value="" disabled selected>
-                    Selecione
-                  </option>
-                  <option value="Novo">Novo</option>
-                  <option value="Usado">Usado</option>
-                </select>
+              <div className="flex-column">
+                <div>
+                  <label htmlFor="state" className="title4 semibold">
+                    Estado de uso
+                  </label>
+                  <select
+                    id="state"
+                    className="grey-input"
+                    {...register("state")}
+                  >
+                    <option value="Novo">Novo</option>
+                    <option value="Usado">Usado</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="category" className="title4 semibold">
+                    Categoria
+                  </label>
+                  <select
+                    id="category"
+                    className="grey-input"
+                    {...register("category")}
+                  >
+                    <option value="Computadores">Computadores</option>
+                    <option value="Smartphones">Smartphones</option>
+                    <option value="Acessórios">Acessórios</option>
+                    <option value="Outros">Outros</option>
+                  </select>
+                </div>
               </div>
-              <div>
-                <label htmlFor="category" className="title4 semibold">
-                  Categoria
-                </label>
-                <select name="category" id="category" className="grey-input">
-                  <option value="" disabled selected>
-                    Selecione
-                  </option>
-                  <option value="Computadores">Computadores</option>
-                  <option value="Smartphones">Smartphones</option>
-                  <option value="Acessórios">Acessórios</option>
-                  <option value="Outros">Outros</option>
-                </select>
-              </div>
-            </div>
-            <button type="submit" className="bg-dark">
-              Desapegar!
-            </button>
-          </Form>
+              <button type="submit" className="bg-dark" disabled={loading}>
+                {loading ? "Carregando" : "Desapegar!"}
+              </button>
+            </form>
+          </FormContainer>
         </section>
       </DesapegoContainer>
       <Footer />
