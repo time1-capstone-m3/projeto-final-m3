@@ -2,20 +2,21 @@ import Card from '../../components/Card';
 import CardPrincipal from '../../components/CardPrincipal';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { Container, Wrapper, ProductsList } from './style';
+import { Container, Wrapper, ProductsList, DivProdutos, DivCardPrincipal } from './style';
 
 const Dashboard = () => {
-
     return (
         <Wrapper>
-            <Header />
+            <Header/>
             <Container>
-                    <div className='cardprincipal'>
+                <DivProdutos>
+                    <DivCardPrincipal>
                         <CardPrincipal />
-                    </div>
-                <ProductsList>
-                    <Card />
-                </ProductsList>
+                    </DivCardPrincipal>
+                    <ProductsList>
+                        <Card />
+                    </ProductsList>
+                </DivProdutos>
             </Container>
             <Footer />
         </Wrapper>

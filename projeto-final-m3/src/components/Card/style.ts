@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardContainer = styled.li`
     background-color: #ffffff;
     box-shadow: var(--shadow);
-    width: 21rem;
+    width: 20rem;
     height: 23rem;
     list-style: none;
     border-radius: 16px;
@@ -11,17 +11,23 @@ export const CardContainer = styled.li`
     &:hover {
         border: 1px solid black;
         transition: .2s;
-        scale: 1.05;
+        scale: 1.02;
         cursor: pointer;
         .div-text {
             background-color: var(--color-primary);
             transition: .2s;
         }
     }
+    @media (max-width: 728px) {
+        & {
+            min-width: 257px;
+            margin: 10px 0px 10px 10px;
+        }
+    }
 
     .imgProduct {
-        height: 200px;
-        width: 200px;
+        height: 12.5rem;
+        width: 12.5rem;
     }
 
     .div-img {
