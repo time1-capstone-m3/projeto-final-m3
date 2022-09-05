@@ -17,6 +17,8 @@ export interface UserData {
   nome: string;
   state: string;
   id: number;
+  tel: string;
+  imgUrl: string;
 }
 export interface LoginData {
   email: string;
