@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   background-color: #cecece;
+  position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -11,6 +12,11 @@ export const FooterContainer = styled.footer`
     padding: 1rem;
     strong {
       margin: 4px;
+    }
+  }
+  @media (max-width: 600px) {
+    p {
+      font-size: 10px;
     }
   }
 `;
