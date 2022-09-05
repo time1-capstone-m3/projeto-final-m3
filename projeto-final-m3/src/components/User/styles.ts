@@ -7,4 +7,11 @@ export const Container = styled.div`
     div[role='menu'].visible {
         visibility: visible;
     }
+    button{
+      background-color: transparent;
+      text-decoration: underline;
+      color: white;
+
+      
+    }
 `;
