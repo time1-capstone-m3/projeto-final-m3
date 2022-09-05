@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 
 const FilterButtons = () => {
-  const { arrayFilter, setSearch } = useContext(ProductContext);
+  const { setSearch } = useContext(ProductContext);
   const navigate = useNavigate();
 
   return (
-    <div className="container">
-      <div className="btn-filter">
+    <div>
+      <div>
         <button autoFocus onClick={() => setSearch("")}>
           Todos
         </button>
