@@ -21,6 +21,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const registerUser = async (data: RegisterData) => {
     const { confirmPassword, ...remaining } = data;
+    
     await api
       .post("/register", remaining)
       .then((res) => {
