@@ -30,5 +30,5 @@ export const formSchemaResgistration = yup.object().shape({
       /(\(?\d{2}\)?\s)?(\d{4,5}-\d{4})/g,
       "Telefone deverá está no formato (61) 98293-9382"
     ),
-  imgUrl: yup.string(),
+  imgUrl: yup.string().required("foto obrigatória"),
 });
