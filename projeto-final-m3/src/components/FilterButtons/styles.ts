@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   box-sizing: border-box;
-  width: 100vw;
-  max-width: 1200px;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
