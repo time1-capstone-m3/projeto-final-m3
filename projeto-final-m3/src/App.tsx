@@ -1,11 +1,10 @@
 import "react-toastify/dist/ReactToastify.css";
 import UserProvider from "./context/UserContext/UserContext";
 import RoutesMain from "./routes";
-import GlobalStyle from './styles/global'
+import GlobalStyle from "./styles/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductProvider from "./context/ProductContext/ProductContext";
-import EditProfile from "./components/EditProfile";
 
 
 function App() {
@@ -13,14 +12,16 @@ function App() {
     <div className="App">
       <UserProvider>
         <ProductProvider>
-          <GlobalStyle />
-          {/* <RoutesMain />       */}
-          <ToastContainer autoClose={1500} position={'top-right'} hideProgressBar={false} closeOnClick={true} pauseOnHover={true} draggable={true}/>
-          {/* <Header />
-          <Footer />
-          <Card /> */}
-          {/* <Registration /> */}
-          <EditProfile/>
+          <GlobalStyle />     
+          <RoutesMain />
+          <ToastContainer
+            autoClose={1500}
+            position={"top-right"}
+            hideProgressBar={false}
+            closeOnClick={true}
+            pauseOnHover={true}
+            draggable={true}
+          />
         </ProductProvider>
       </UserProvider>
     </div>

@@ -4,13 +4,14 @@ export const ProductsList = styled.ul`
     width: 100%;
     height: 30%;
     display: flex;
-    gap: 46px;
+    flex-wrap: wrap;
+    gap: 2.875rem;
 
     @media (max-width: 728px) {
         & {
             gap: 0px;
-            flex-direction: row;
             overflow: auto;
+            flex-wrap: nowrap;
         }
     }
 `;

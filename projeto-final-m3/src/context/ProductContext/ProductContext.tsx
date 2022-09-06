@@ -10,11 +10,7 @@ function ProductProvider({ children }: ProductProps) {
 
   const [search, setSearch] = useState("");
 
-  const arrayFilter = product.filter(
-    (product) =>
-      product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
-      product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  );
+  const [productMain, setProductMain] = useState<IProduct>({} as IProduct);
 
   useEffect(() => {
     api
@@ -24,6 +20,14 @@ function ProductProvider({ children }: ProductProps) {
       })
       .catch((err) => console.log(err));
   }, [product]);
+
+  const arrayFilter = product.filter(
+    (product) =>
+      product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
+      product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
+  // console.log(arrayFilter);
 
   useEffect(() => {
     const cardPosition = product.filter((elem) => elem.id === 1);
@@ -38,6 +42,8 @@ function ProductProvider({ children }: ProductProps) {
         search,
         setSearch,
         arrayFilter,
+        productMain,
+        setProductMain,
       }}
     >
       {children}
