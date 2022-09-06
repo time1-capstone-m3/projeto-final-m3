@@ -10,25 +10,28 @@ import {
   EditData,
   UserData,
 } from "./interfaces";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 
 const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
   const [loginUser, setLoginUser] = useState(true);
+  const navigate = useNavigate();
 
   const registerUser = async (data: RegisterData) => {
     const { confirmPassword, ...remaining } = data;
+    
     await api
       .post("/register", remaining)
       .then((res) => {
-        console.log("Usuário Registrado: ", res);
+        console.log(res);
         toast.success("Usuário criado com sucesso!");
         setLoginUser(true);
       })
       .catch((err) => {
         toast.error("Dados incorretos!");
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -36,12 +39,13 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/login", data)
       .then((res) => {
-        console.log("Logou!!");
+        console.log(res);
         localStorage.setItem("@token", JSON.stringify(res.data.accessToken));
         localStorage.setItem("@user", JSON.stringify(res.data.user));
-
-        console.log(res.data.user);
         setUser(res.data.user);
+        toast.success("Logado com sucesso!");
+        navigate("/dashboard");
+        console.log("bugfix");
       })
       .catch((err) => console.log(err));
   };
@@ -57,7 +61,8 @@ const UserProvider = ({ children }: UserProps) => {
         },
       })
       .then((res) => {
-        console.log("Mudou: ", res);
+        console.log(res);
+        setUser(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -68,7 +73,17 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ registerUser, login, edit, logout, user, loginUser, setLoginUser }}>
+    <UserContext.Provider
+      value={{
+        registerUser,
+        login,
+        edit,
+        logout,
+        user,
+        loginUser,
+        setLoginUser,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

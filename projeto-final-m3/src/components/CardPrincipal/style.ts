@@ -9,13 +9,21 @@ export const CardPrincipalLi = styled.li`
     height: 15rem;
     list-style: none;
     border-radius: 20px;
+    margin-right: 10px;
 
     margin-bottom: 25px;
+
+    @media (max-width: 728px) {
+        &{
+            min-width: 200px;
+            min-height: 230px;
+        }
+    }
 
     &:hover {
         border: 1px solid black;
         transition: .2s;
-        scale: 1.05;
+        scale: 1.02;
         cursor: pointer;
     }
 
@@ -29,7 +37,7 @@ export const CardPrincipalLi = styled.li`
         flex-direction: column;
         align-items: flex-end;
         gap: 20px;
-        margin: 29px 50px;
+        margin: 29px 40px 0px 0px;
     }
     .div-loc-icon {
         display: flex;

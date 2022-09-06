@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import api from "../../services/api";
@@ -12,11 +13,19 @@ import {
 function ProductProvider({ children }: ProductProps) {
   const { user } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+=======
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import { ProductProps, ProductContext, IProduct } from "./interfaces";
+
+function ProductProvider({ children }: ProductProps) {
+>>>>>>> e102865db44a75c94f50a95d5794e2e8b4910291
   const [product, setProduct] = useState<IProduct[]>([]);
   const [cardDestaquePosition, setcardDestaquePosition] = useState<IProduct[]>(
     []
   );
 
+<<<<<<< HEAD
   useEffect(() => {
     fetch(`https://json-server-time1-m3.herokuapp.com/products`)
       .then((response) => response.json())
@@ -83,11 +92,36 @@ function ProductProvider({ children }: ProductProps) {
     }
   }
 
+=======
+  const [search, setSearch] = useState("");
+
+  const arrayFilter = product.filter(
+    (product) =>
+      product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
+      product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
+  useEffect(() => {
+    api
+      .get("/products")
+      .then((res) => {
+        setProduct(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [product]);
+
+  useEffect(() => {
+    const cardPosition = product.filter((elem) => elem.id === 1);
+    setcardDestaquePosition(cardPosition);
+  }, [product]);
+
+>>>>>>> e102865db44a75c94f50a95d5794e2e8b4910291
   return (
     <ProductContext.Provider
       value={{
         product,
         cardDestaquePosition,
+<<<<<<< HEAD
         handleFilter,
         setFilterAll,
         setFilterPcs,
@@ -97,6 +131,11 @@ function ProductProvider({ children }: ProductProps) {
         createProduct,
         loading,
         setLoading,
+=======
+        search,
+        setSearch,
+        arrayFilter,
+>>>>>>> e102865db44a75c94f50a95d5794e2e8b4910291
       }}
     >
       {children}
