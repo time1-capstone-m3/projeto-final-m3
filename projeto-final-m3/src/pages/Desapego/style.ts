@@ -5,7 +5,7 @@ const DesapegoContainer = styled.main`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 5rem auto;
 
   .content-section {
     display: flex;
@@ -19,14 +19,14 @@ const DesapegoContainer = styled.main`
   }
 
   .form-section {
-   max-width: 528px;
+    max-width: 528px;
   }
 
-  .flex-column{
+  .flex-column {
     display: flex;
     justify-content: space-around;
     gap: 20px;
   }
-`
+`;
 
-export default DesapegoContainer
+export default DesapegoContainer;

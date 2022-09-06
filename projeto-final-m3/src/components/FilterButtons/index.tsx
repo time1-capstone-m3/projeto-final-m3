@@ -21,7 +21,9 @@ const FilterButtons = () => {
           <button onClick={() => setSearch("Acessórios")}>Acessórios</button>
           <button onClick={() => setSearch("Outros")}>Outros</button>
         </div>
-        <button className="button-donate">Quero Doar um item</button>
+        <button className="button-donate" onClick={() => navigate("/donate")}>
+          Quero Doar um item
+        </button>
       </ContainerButtons>
     </>
   );

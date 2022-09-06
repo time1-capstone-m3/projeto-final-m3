@@ -28,7 +28,7 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: string;
+  isDonated: boolean;
   name: string;
   state: string;
   userId: string;
@@ -42,4 +42,5 @@ export interface IProductForm {
   image: string;
   state: string;
   category: string;
+  condition?: string;
 }

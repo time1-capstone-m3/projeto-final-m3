@@ -6,11 +6,11 @@ import Desapego from "../pages/Desapego";
 const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginRegister />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/login" element={<LoginRegister />} />
       <Route path="/product/id" />
       <Route path="/profile" />
-      <Route path="/desapego" element={<Desapego />} />
+      <Route path="/donate" element={<Desapego />} />
     </Routes>
   );
 };

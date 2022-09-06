@@ -36,8 +36,6 @@ function ProductProvider({ children }: ProductProps) {
       product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
 
-  // console.log(arrayFilter);
-
   useEffect(() => {
     const cardPosition = product.filter((elem) => elem.id === 1);
     setcardDestaquePosition(cardPosition);
@@ -49,13 +47,18 @@ function ProductProvider({ children }: ProductProps) {
   ) {
     try {
       setLoading(true);
-      const token = JSON.parse(localStorage.getItem("@token") || "");
-      const response = await api.post("/products", formData, {
+      const token = localStorage.getItem("@token");
+
+      const newFormData = {
+        ...formData,
+        isDonated: false,
+        userId: `${user?.id}`,
+      };
+
+      const response = await api.post("/products", newFormData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const desapego = { ...response.data, userId: `${user?.id}` };
-      console.log("desapego", desapego);
-      setProduct([...product, desapego]);
+      setProduct([...product, response.data]);
       toast.success("Desapego adicionado com sucesso!");
     } catch (error) {
       console.error(error);
