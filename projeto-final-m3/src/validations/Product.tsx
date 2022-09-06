@@ -7,4 +7,6 @@ export const formSchemaProduct = yup.object().shape({
     .string()
     .required("URL da imagem obrigatória")
     .url("Deve ser uma URL"),
+  condition: yup.string(),
+  category: yup.string(),
 });

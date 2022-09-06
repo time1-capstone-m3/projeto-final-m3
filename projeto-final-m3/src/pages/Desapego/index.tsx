@@ -77,13 +77,13 @@ const Desapego = () => {
 
               <div className="flex-column">
                 <div>
-                  <label htmlFor="state" className="title4 semibold">
+                  <label htmlFor="condition" className="title4 semibold">
                     Estado de uso
                   </label>
                   <select
-                    id="state"
+                    id="condition"
                     className="grey-input"
-                    {...register("state")}
+                    {...register("condition")}
                   >
                     <option value="Novo">Novo</option>
                     <option value="Usado">Usado</option>

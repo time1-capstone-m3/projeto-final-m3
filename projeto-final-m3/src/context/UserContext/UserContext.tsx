@@ -17,21 +17,23 @@ export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
   const [loginUser, setLoginUser] = useState(true);
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@token") || "");
-    const user = JSON.parse(localStorage.getItem("@user") || "");
+    const token = localStorage.getItem("@token");
+    const id = localStorage.getItem("@id");
 
     const autoLogin = () => {
       api
-        .get(`/users/${user.id}`, {
+        .get(`/users/${String(id)}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((res) => setUser(res.data))
+        .then((res) => {
+          setUser(res.data);
+        })
         .catch((err) => console.log(err));
     };
 
@@ -61,12 +63,11 @@ const UserProvider = ({ children }: UserProps) => {
       .post("/login", data)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("@token", JSON.stringify(res.data.accessToken));
-        localStorage.setItem("@user", JSON.stringify(res.data.user));
+        localStorage.setItem("@token", res.data.accessToken);
+        localStorage.setItem("@id", res.data.user.id);
         setUser(res.data.user);
         toast.success("Logado com sucesso!");
-        navigate("/dashboard");
-        console.log("bugfix");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err)
@@ -75,11 +76,11 @@ const UserProvider = ({ children }: UserProps) => {
   };
 
   const edit = async (data: EditData) => {
-    const token = JSON.parse(localStorage.getItem("@token") || "");
-    const user = JSON.parse(localStorage.getItem("@user") || "");
+    const token = localStorage.getItem("@token");
+    const id = localStorage.getItem("@id");
 
     await api
-      .patch(`/users/${user.id}`, data, {
+      .patch(`/users/${String(id)}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -87,7 +88,7 @@ const UserProvider = ({ children }: UserProps) => {
       .then((res) => {
         console.log(res);
         setUser(res.data);
-        setModal(false)
+        setModal(false);
       })
       .catch((err) => console.log(err));
   };
