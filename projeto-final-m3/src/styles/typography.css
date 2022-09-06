@@ -37,3 +37,7 @@
 .color-grey {
   color: var(--grey-3);
 }
+
+.color-green {
+  color: var(--color-primary)
+}

@@ -22,8 +22,8 @@ export const Container = styled.section`
     max-width: 1100px;
 `;
 export const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
 `;
 export const DivProdutos = styled.div`
     @media (max-width: 728px) {
