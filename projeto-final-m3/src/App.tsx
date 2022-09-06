@@ -6,12 +6,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductProvider from "./context/ProductContext/ProductContext";
 
+
 function App() {
   return (
     <div className="App">
       <UserProvider>
         <ProductProvider>
-          <GlobalStyle />
+          <GlobalStyle />     
           <RoutesMain />
           <ToastContainer
             autoClose={1500}
