@@ -1,14 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import CardPrincipalLi from "./style";
 import { BiLocationPlus } from "react-icons/bi";
 
 const CardPrincipal = () => {
-  const { cardDestaquePosition } = useContext(ProductContext);
+  const { cardDestaquePosition, setProductMain } = useContext(ProductContext);
+
   return (
     <>
       {cardDestaquePosition.map((elem, id) => {
-        if (id === 0)
+        if (id === 0) {
+          setProductMain(elem);
           return (
             <CardPrincipalLi key={id}>
               <div className="div-img">
@@ -25,6 +27,7 @@ const CardPrincipal = () => {
               </div>
             </CardPrincipalLi>
           );
+        }
       })}
     </>
   );
