@@ -10,6 +10,8 @@ export interface ProducProviderData {
   setSearch: (data: string) => void;
   cardDestaquePosition: IProduct[];
   arrayFilter: IProduct[];
+  productMain: IProduct;
+  setProductMain: (data: IProduct) => void;
 }
 
 export const ProductContext = createContext<ProducProviderData>(
