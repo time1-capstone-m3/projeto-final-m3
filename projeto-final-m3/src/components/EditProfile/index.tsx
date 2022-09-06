@@ -17,6 +17,12 @@ function EditProfile() {
     formState: { errors },
   } = useForm<EditData>({
     resolver: yupResolver(formSchemaEdit),
+    defaultValues: {
+      name: user?.name,
+      email: user?.email,
+      tel: user?.tel,
+      imgUrl: user?.imgUrl,
+    },
   });
 
   return (

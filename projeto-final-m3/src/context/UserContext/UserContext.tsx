@@ -77,7 +77,7 @@ const UserProvider = ({ children }: UserProps) => {
     const token = localStorage.getItem("@token");
     const id = localStorage.getItem("@id");
 
-    const values = Object.values(data);
+    /* const values = Object.values(data);
     const keys = Object.keys(data);
 
     console.log("Antes:", data);
@@ -88,7 +88,7 @@ const UserProvider = ({ children }: UserProps) => {
       }
     });
 
-    console.log("Depois: ", data);
+    console.log("Depois: ", data); */
 
     await api
       .patch(`/users/${String(id)}`, data, {
