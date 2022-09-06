@@ -22,7 +22,7 @@ function ProductProvider({ children }: ProductProps) {
   const [productMain, setProductMain] = useState<IProduct>({} as IProduct);
 
   const [userProduct, setUserProduct] = useState<IProduct[]>([]);
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState(true);
   const [filterProduct, setFilterProduct] = useState<any>([]);
 
   useEffect(() => {
@@ -75,6 +75,7 @@ function ProductProvider({ children }: ProductProps) {
 
   function filterItem(itemFilter: any) {
     setFilter(itemFilter);
+    console.log(itemFilter)
   }
 
   useEffect(() => {
@@ -84,8 +85,10 @@ function ProductProvider({ children }: ProductProps) {
 
   useEffect(() => {
     const id = localStorage.getItem("@id")
+    console.log(id)
 
-    const filter = product.filter((elem) => elem.userId === id)
+    const filter = product.filter((elem) => elem.userId === String(id))
+    console.log(filter)
     setUserProduct(filter)
   },[])
 

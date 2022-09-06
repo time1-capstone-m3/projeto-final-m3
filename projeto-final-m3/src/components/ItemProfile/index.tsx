@@ -6,7 +6,7 @@ import { BiLocationPlus } from "react-icons/bi";
 const ItemProfile = () => {
 
   const { userProduct, filterProduct } = useContext(ProductContext);
-  
+  // console.log(userProduct)
   return (
     <>
     {(filterProduct.length > 0 ? filterProduct : userProduct).map((elem: any, id: any) => {

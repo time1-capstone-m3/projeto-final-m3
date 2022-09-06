@@ -1,9 +1,10 @@
 import { UserContext } from "../../context/UserContext/UserContext";
 import { useContext } from "react";
 import { ContainerCardPerfil } from "./style";
+import EditProfile from "../EditProfile";
 
 const CardPerfil = () => {
-  const { user, setModal } = useContext(UserContext);
+  const { user, setModal, modal} = useContext(UserContext);
   return user ? (
     <ContainerCardPerfil>
       <div>
