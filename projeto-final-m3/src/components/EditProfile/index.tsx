@@ -5,38 +5,76 @@ import { UserContext } from "../../context/UserContext/UserContext";
 import { EditData } from "../../context/UserContext/interfaces";
 import { useContext } from "react";
 import { formSchemaEdit } from "../../validations/editProfile";
-import { IoMdClose } from 'react-icons/io'
+import { IoMdClose } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 
 function EditProfile() {
-  const { edit, setModal } = useContext(UserContext)
+  const { edit, setModal, user } = useContext(UserContext);
 
-  const { register, handleSubmit, formState: { errors} } = useForm<EditData>({
-    resolver: yupResolver(formSchemaEdit)
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<EditData>({
+    resolver: yupResolver(formSchemaEdit),
+    defaultValues: {
+      name: user?.name,
+      email: user?.email,
+      tel: user?.tel,
+      imgUrl: user?.imgUrl,
+    },
+  });
 
   return (
     <Container>
       <div className="modal">
         <div className="title">
-          <h4><FaEdit /> Editar dados</h4>
-          <IoMdClose className="close" onClick={() => setModal(false)}/>
+          <h4>
+            <FaEdit /> Editar dados
+          </h4>
+          <IoMdClose className="close" onClick={() => setModal(false)} />
         </div>
         <form onSubmit={handleSubmit((register) => edit(register))}>
           <label htmlFor="name">Nome</label>
-          <input className="grey-input" type="text" {...register('name')} id='name' placeholder="Digite aqui seu nome"/>
+          <input
+            className="grey-input"
+            type="text"
+            {...register("name")}
+            id="name"
+            placeholder={user?.name}
+          />
           <span>{errors.name?.message}</span>
 
           <label htmlFor="email">Email</label>
-          <input className="grey-input" type="text" {...register('email')} id='email' placeholder="Digite aqui seu email"/>
+          <input
+            className="grey-input"
+            type="text"
+            {...register("email")}
+            id="email"
+            placeholder={user?.email}
+          />
           <span>{errors.email?.message}</span>
 
           <label htmlFor="tel">Telefone</label>
-          <input className="grey-input" type="text" {...register('tel')} id='tel' placeholder="(xx) xxxxx-xxxx"/>
+          <input
+            className="grey-input"
+            type="text"
+            {...register("tel")}
+            id="tel"
+            placeholder={user?.tel}
+          />
           <span>{errors.tel?.message}</span>
 
-          <label htmlFor="imgUrl" className="labelImg">Imagem</label>
-          <input className="grey-input" type="text" {...register('imgUrl')} id='imgUrl' placeholder="URL para a foto de perfil"/>
+          <label htmlFor="imgUrl" className="labelImg">
+            Imagem
+          </label>
+          <input
+            className="grey-input"
+            type="text"
+            {...register("imgUrl")}
+            id="imgUrl"
+            placeholder={user?.imgUrl}
+          />
           <span>{errors.email?.message}</span>
 
           <label className="labelState" htmlFor="estado">
@@ -74,10 +112,10 @@ function EditProfile() {
           </select>
           <span>{errors.state?.message}</span>
 
-          <button className="btn" type="submit">Salvar alterações</button>
-
+          <button className="btn" type="submit">
+            Salvar alterações
+          </button>
         </form>
-
       </div>
     </Container>
   );

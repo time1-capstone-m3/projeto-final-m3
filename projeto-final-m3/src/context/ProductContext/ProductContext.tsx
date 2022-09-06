@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 import { UserContext } from "../UserContext/UserContext";
@@ -16,8 +17,8 @@ function ProductProvider({ children }: ProductProps) {
   const [cardDestaquePosition, setcardDestaquePosition] = useState<IProduct[]>(
     []
   );
-
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   const [productMain, setProductMain] = useState<IProduct>({} as IProduct);
 
@@ -51,6 +52,7 @@ function ProductProvider({ children }: ProductProps) {
 
       const newFormData = {
         ...formData,
+        state: user?.state,
         isDonated: false,
         userId: `${user?.id}`,
       };
@@ -60,6 +62,7 @@ function ProductProvider({ children }: ProductProps) {
       });
       setProduct([...product, response.data]);
       toast.success("Desapego adicionado com sucesso!");
+      navigate("/");
     } catch (error) {
       console.error(error);
     } finally {
