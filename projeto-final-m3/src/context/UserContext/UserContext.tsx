@@ -19,6 +19,7 @@ const UserProvider = ({ children }: UserProps) => {
   const [loginUser, setLoginUser] = useState(true);
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
+  const [dataEdit, setDataEdit] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("@token");
@@ -76,6 +77,19 @@ const UserProvider = ({ children }: UserProps) => {
     const token = localStorage.getItem("@token");
     const id = localStorage.getItem("@id");
 
+    const values = Object.values(data);
+    const keys = Object.keys(data);
+
+    console.log("Antes:", data);
+
+    values.forEach((elem, index) => {
+      if (elem === "") {
+        delete data[keys[index] as keyof EditData];
+      }
+    });
+
+    console.log("Depois: ", data);
+
     await api
       .patch(`/users/${String(id)}`, data, {
         headers: {
@@ -92,7 +106,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const logout = () => {
     localStorage.clear();
-    console.log("Deslogou");
+    setUser({} as UserData);
   };
 
   return (
