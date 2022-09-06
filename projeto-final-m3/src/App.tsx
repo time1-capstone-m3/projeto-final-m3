@@ -5,6 +5,7 @@ import GlobalStyle from './styles/global'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductProvider from "./context/ProductContext/ProductContext";
+import EditProfile from "./components/EditProfile";
 
 
 function App() {
@@ -13,12 +14,13 @@ function App() {
       <UserProvider>
         <ProductProvider>
           <GlobalStyle />
-          <RoutesMain />         
+          {/* <RoutesMain />       */}
           <ToastContainer autoClose={1500} position={'top-right'} hideProgressBar={false} closeOnClick={true} pauseOnHover={true} draggable={true}/>
           {/* <Header />
           <Footer />
           <Card /> */}
           {/* <Registration /> */}
+          <EditProfile/>
         </ProductProvider>
       </UserProvider>
     </div>

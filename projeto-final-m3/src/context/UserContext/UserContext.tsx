@@ -17,6 +17,7 @@ export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
   const [loginUser, setLoginUser] = useState(true);
+  const [modal, setModal] = useState(false)
   const navigate = useNavigate();
 
   const registerUser = async (data: RegisterData) => {
@@ -62,6 +63,7 @@ const UserProvider = ({ children }: UserProps) => {
       .then((res) => {
         console.log(res);
         setUser(res.data);
+        setModal(false)
       })
       .catch((err) => console.log(err));
   };
@@ -81,6 +83,8 @@ const UserProvider = ({ children }: UserProps) => {
         user,
         loginUser,
         setLoginUser,
+        modal,
+        setModal,
       }}
     >
       {children}
