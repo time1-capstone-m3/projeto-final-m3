@@ -3,11 +3,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  margin-top: 9px;
+  justify-content: flex-end;
   position: relative;
+
+  width: 13.313rem;
 
   .container-user {
     margin: 0;
+    padding: 0;
   }
   .invisible {
     visibility: hidden;
@@ -34,6 +37,7 @@ export const Container = styled.div`
     border-radius: 10px;
   }
   .button-user {
+    margin: 0;
     background-color: transparent;
     color: white;
     padding: 0;
@@ -42,9 +46,10 @@ export const Container = styled.div`
     gap: 9px;
   }
   .img-user {
+    margin: 0;
     object-fit: cover;
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     border: 2px solid white;
   }
@@ -56,14 +61,25 @@ export const Container = styled.div`
     text-decoration: underline;
   }
   .button-container-user {
-    margin-left: 15px;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
   }
   .nome-user {
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     gap: 9px;
+
+    p {
+      max-width: 10ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 `;
 export const LinkNav = styled(Link)`
@@ -82,7 +98,6 @@ export const LinkNav = styled(Link)`
 export const Button = styled.button`
   background-color: var(--grey-1);
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   width: 92%;
   height: 2.875rem;
