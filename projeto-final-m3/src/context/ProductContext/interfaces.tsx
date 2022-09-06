@@ -16,6 +16,8 @@ export interface ProducProviderData {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   arrayFilter: IProduct[];
+  productMain: IProduct;
+  setProductMain: (data: IProduct) => void;
 }
 
 export const ProductContext = createContext<ProducProviderData>(

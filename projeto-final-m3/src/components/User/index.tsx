@@ -7,7 +7,7 @@ import { FaUserEdit } from 'react-icons/fa';
 import { useState } from 'react';
 
 const User = () => {
-    const { user } = useContext(UserContext);
+    const { user, logout } = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -45,7 +45,7 @@ const User = () => {
                             <p>Acessar perfil</p>
                         </LinkNav>
                     </Button>
-                    <Button>
+                    <Button onClick={logout}>
                         <LinkNav to="/">
                             <BsArrowBarRight />
                             <p>Sair</p>

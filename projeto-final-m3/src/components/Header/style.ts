@@ -3,21 +3,6 @@ import styled from "styled-components";
 export const HeaderContainer = styled.div`
   background-color: #4eab3f;
   width: 100%;
-<<<<<<< HEAD
-  min-height: 94px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 32px;
-  div {
-    max-width: 1100px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    img {
-      width: 8rem;
-    }
-=======
   height: 11rem;
   display: flex;
   gap: 2rem;
@@ -33,8 +18,9 @@ export const HeaderContainer = styled.div`
   .header-div {
     width: 100%;
     max-width: 1100px;
->>>>>>> e102865db44a75c94f50a95d5794e2e8b4910291
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+
   }
 `;
-
-
