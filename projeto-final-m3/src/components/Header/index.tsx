@@ -5,7 +5,6 @@ import User from "../../components/User";
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 
-
 const Header = () => {
   const { setSearch} = useContext(ProductContext);
 

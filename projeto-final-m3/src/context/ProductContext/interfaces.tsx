@@ -18,6 +18,9 @@ export interface ProducProviderData {
   arrayFilter: IProduct[];
   productMain: IProduct;
   setProductMain: (data: IProduct) => void;
+  filterItem: (any: any) => void;
+  filterProduct: IProduct[];
+  userProduct: IProduct[];
 }
 
 export const ProductContext = createContext<ProducProviderData>(
@@ -28,7 +31,7 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: boolean;
+  isDonated: boolean; // true doado
   name: string;
   state: string;
   userId: string;
