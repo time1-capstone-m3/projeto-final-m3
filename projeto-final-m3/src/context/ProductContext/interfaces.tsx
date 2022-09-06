@@ -9,16 +9,13 @@ export interface ProducProviderData {
   search: string;
   setSearch: (data: string) => void;
   cardDestaquePosition: IProduct[];
-<<<<<<< HEAD
   createProduct: (
     formData: IProductForm,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => void;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-=======
   arrayFilter: IProduct[];
->>>>>>> e102865db44a75c94f50a95d5794e2e8b4910291
 }
 
 export const ProductContext = createContext<ProducProviderData>(
