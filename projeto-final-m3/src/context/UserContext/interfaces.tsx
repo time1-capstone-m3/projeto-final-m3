@@ -16,7 +16,7 @@ export interface IUserProvider {
 }
 export interface UserData {
   email: string;
-  nome: string;
+  name: string;
   state: string;
   id: number;
   tel: string;

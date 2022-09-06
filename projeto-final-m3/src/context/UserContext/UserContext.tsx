@@ -48,7 +48,6 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/register", remaining)
       .then((res) => {
-        console.log(res);
         toast.success("Usuário criado com sucesso!");
         setLoginUser(true);
       })
@@ -62,7 +61,6 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/login", data)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("@token", res.data.accessToken);
         localStorage.setItem("@id", res.data.user.id);
         setUser(res.data.user);
@@ -70,8 +68,8 @@ const UserProvider = ({ children }: UserProps) => {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err)
-        toast.error('E-mail ou senha inválidos')
+        console.log(err);
+        toast.error("E-mail ou senha inválidos");
       });
   };
 
@@ -86,7 +84,6 @@ const UserProvider = ({ children }: UserProps) => {
         },
       })
       .then((res) => {
-        console.log(res);
         setUser(res.data);
         setModal(false);
       })
@@ -95,7 +92,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const logout = () => {
     localStorage.clear();
-    console.log("Deslogou");
+    setUser({} as UserData);
   };
 
   return (
