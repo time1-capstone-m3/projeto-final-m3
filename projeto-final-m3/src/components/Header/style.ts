@@ -11,8 +11,8 @@ export const HeaderContainer = styled.div`
   align-items: center;
 
   img {
-    margin-top: 1rem;
-    width: 8rem;
+    margin: 0;
+    width: 163px;
   }
 
   .header-div {
@@ -22,6 +22,28 @@ export const HeaderContainer = styled.div`
     height: 50px;
     justify-content: space-between;
 
-    border: 1px solid red;
+    input {
+      margin: 0;
+      padding: 0.5rem;
+      border-radius: 18px 0 0 18px;
+      width: 20rem;
+      height: 2rem;
+    }
+
+    .container-search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 352px;
+    }
+
+    .icon-search {
+      background-color: white;
+      height: 2rem;
+      width: 2rem;
+      border-radius: 0 18px 18px 0;
+      padding: 5px;
+      color: gray;
+    }
   }
 `;

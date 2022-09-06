@@ -16,6 +16,13 @@
   min-height: 3rem;
   width: 100%;
   transition: 0.3s;
+  margin: 5px 0 18px;
+}
+
+.grey-input.big-input {
+  min-height: 11.5rem;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 ::placeholder {
@@ -26,12 +33,12 @@
 }
 
 .grey-input:focus {
-  border: 1.5px solid var(--grey-4);
+  border: 1.5px solid var(--grey-3);
   box-shadow: var(--shadow);
 }
 
 .grey-input:hover::placeholder {
-  color: var(--grey-3);
+  color: var(--grey-4);
   padding-left: 6px;
 }
 
@@ -56,6 +63,11 @@ button {
   border-radius: 30px;
   padding: 1rem 2rem;
   transition: 0.3s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: var(--grey-3);
 }
 
 .bg-dark {

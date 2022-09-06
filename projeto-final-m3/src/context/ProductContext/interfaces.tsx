@@ -9,9 +9,18 @@ export interface ProducProviderData {
   search: string;
   setSearch: (data: string) => void;
   cardDestaquePosition: IProduct[];
+  createProduct: (
+    formData: IProductForm,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   arrayFilter: IProduct[];
   productMain: IProduct;
   setProductMain: (data: IProduct) => void;
+  filterItem: (any: any) => void;
+  filterProduct: IProduct[];
+  userProduct: IProduct[];
 }
 
 export const ProductContext = createContext<ProducProviderData>(
@@ -22,9 +31,19 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: string;
+  isDonated: boolean; // true doado
   name: string;
   state: string;
-  userId: number;
+  userId: string;
   category: string;
+  description: string;
+}
+
+export interface IProductForm {
+  name: string;
+  description: string;
+  image: string;
+  state: string;
+  category: string;
+  condition?: string;
 }

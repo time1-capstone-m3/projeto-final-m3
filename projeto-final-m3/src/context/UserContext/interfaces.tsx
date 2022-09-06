@@ -11,10 +11,12 @@ export interface IUserProvider {
   user: UserData | null;
   loginUser: boolean;
   setLoginUser: React.Dispatch<React.SetStateAction<boolean>>;
+  modal: boolean;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export interface UserData {
   email: string;
-  nome: string;
+  name: string;
   state: string;
   id: number;
   tel: string;
@@ -40,6 +42,7 @@ export interface RegisterData {
 export interface EditData {
   email: string;
   name: string;
-  password: string;
   state: string;
+  tel: string;
+  imgUrl: string;
 }
