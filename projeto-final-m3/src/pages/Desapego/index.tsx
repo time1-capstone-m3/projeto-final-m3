@@ -12,8 +12,12 @@ import {
 } from "../../context/ProductContext/interfaces";
 import { formSchemaProduct } from "../../validations/Product";
 import { useContext } from "react";
+import userEvent from "@testing-library/user-event";
+import { UserContext } from "../../context/UserContext/UserContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const Desapego = () => {
+  const { user } = useContext(UserContext);
   const { loading, setLoading, createProduct } = useContext(ProductContext);
   const {
     register,
@@ -22,6 +26,8 @@ const Desapego = () => {
   } = useForm<IProductForm>({
     resolver: yupResolver(formSchemaProduct),
   });
+
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
