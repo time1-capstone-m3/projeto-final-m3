@@ -19,7 +19,6 @@ const UserProvider = ({ children }: UserProps) => {
   const [loginUser, setLoginUser] = useState(true);
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
-  const [dataEdit, setDataEdit] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("@token");
