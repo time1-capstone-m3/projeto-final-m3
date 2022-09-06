@@ -31,6 +31,7 @@ export const Container = styled.div`
         margin-top: 9px;
 
         border-radius: 10px;
+        box-shadow: var(--shadow);
     }
 
     .button-user {
@@ -47,6 +48,7 @@ export const Container = styled.div`
         height: 55px;
         border-radius: 50%;
         border: 2px solid white;
+        object-fit: cover;
     }
     .linknav-top {
         margin-top: 22px;
@@ -75,6 +77,7 @@ export const LinkNav = styled(Link)`
     justify-content: flex-start;
     align-items: center;
     margin-left: 10px;
+
     &:hover {
         color: white;
     }
