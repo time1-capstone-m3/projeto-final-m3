@@ -19,7 +19,6 @@ const UserProvider = ({ children }: UserProps) => {
   const [loginUser, setLoginUser] = useState(true);
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
-  const [dataEdit, setDataEdit] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("@token");
@@ -49,7 +48,6 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/register", remaining)
       .then((res) => {
-        console.log(res);
         toast.success("Usuário criado com sucesso!");
         setLoginUser(true);
       })
@@ -63,7 +61,6 @@ const UserProvider = ({ children }: UserProps) => {
     await api
       .post("/login", data)
       .then((res) => {
-        console.log(res);
         localStorage.setItem("@token", res.data.accessToken);
         localStorage.setItem("@id", res.data.user.id);
         setUser(res.data.user);
@@ -71,27 +68,14 @@ const UserProvider = ({ children }: UserProps) => {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err)
-        toast.error('E-mail ou senha inválidos')
+        console.log(err);
+        toast.error("E-mail ou senha inválidos");
       });
   };
 
   const edit = async (data: EditData) => {
     const token = localStorage.getItem("@token");
     const id = localStorage.getItem("@id");
-
-    /* const values = Object.values(data);
-    const keys = Object.keys(data);
-
-    console.log("Antes:", data);
-
-    values.forEach((elem, index) => {
-      if (elem === "") {
-        delete data[keys[index] as keyof EditData];
-      }
-    });
-
-    console.log("Depois: ", data); */
 
     await api
       .patch(`/users/${String(id)}`, data, {
@@ -100,7 +84,6 @@ const UserProvider = ({ children }: UserProps) => {
         },
       })
       .then((res) => {
-        console.log(res);
         setUser(res.data);
         setModal(false);
       })

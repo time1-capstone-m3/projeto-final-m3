@@ -64,7 +64,7 @@ function ProductProvider({ children }: ProductProps) {
       toast.success("Desapego adicionado com sucesso!");
       navigate("/");
     } catch (error) {
-      console.error(error);
+      toast.error("Algo deu errado!");
     } finally {
       setLoading(false);
     }

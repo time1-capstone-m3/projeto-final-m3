@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import { UserContext } from "../../context/UserContext/UserContext";
 import { ContainerButtons } from "./styles";
@@ -27,7 +28,10 @@ const FilterButtons = () => {
           className="button-donate"
           onClick={() => {
             if (user?.name) navigate("/donate");
-            else navigate("/login");
+            else {
+              toast.info("Você precisa estar logado");
+              navigate("/login");
+            }
           }}
         >
           Quero Doar um item
