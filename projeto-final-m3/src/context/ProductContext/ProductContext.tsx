@@ -19,8 +19,11 @@ function ProductProvider({ children }: ProductProps) {
   );
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-
   const [productMain, setProductMain] = useState<IProduct>({} as IProduct);
+
+  const [userProduct, setUserProduct] = useState<IProduct[]>([]);
+  const [filter, setFilter] = useState(null);
+  const [filterProduct, setFilterProduct] = useState<any>([]);
 
   useEffect(() => {
     api
@@ -70,6 +73,22 @@ function ProductProvider({ children }: ProductProps) {
     }
   }
 
+  function filterItem(itemFilter: any) {
+    setFilter(itemFilter);
+  }
+
+  useEffect(() => {
+    const newFilter = product.filter((elem) => elem.isDonated === filter);
+    setFilterProduct(newFilter);
+  }, [product, filter]);
+
+  useEffect(() => {
+    const id = localStorage.getItem("@id")
+
+    const filter = product.filter((elem) => elem.userId === id)
+    setUserProduct(filter)
+  },[])
+
   return (
     <ProductContext.Provider
       value={{
@@ -83,6 +102,9 @@ function ProductProvider({ children }: ProductProps) {
         arrayFilter,
         productMain,
         setProductMain,
+        filterItem,
+        filterProduct,
+        userProduct
       }}
     >
       {children}

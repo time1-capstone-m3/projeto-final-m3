@@ -13,6 +13,9 @@ export const ContainerCardPerfil = styled.div`
   margin-bottom: 25px;
   padding: 2rem;
   gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 3rem;
 
   div {
     width: 12rem;

@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import { BiSearchAlt } from "react-icons/bi";
 
+
 const Header = () => {
   const { setSearch } = useContext(ProductContext);
 
