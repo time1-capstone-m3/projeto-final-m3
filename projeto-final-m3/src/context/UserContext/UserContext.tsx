@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,9 +19,29 @@ const UserProvider = ({ children }: UserProps) => {
   const [loginUser, setLoginUser] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("@token") || "");
+    const user = JSON.parse(localStorage.getItem("@user") || "");
+
+    const autoLogin = () => {
+      api
+        .get(`/users/${user.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => setUser(res.data))
+        .catch((err) => console.log(err));
+    };
+
+    if (token) {
+      autoLogin();
+    }
+  }, []);
+
   const registerUser = async (data: RegisterData) => {
     const { confirmPassword, ...remaining } = data;
-    
+
     await api
       .post("/register", remaining)
       .then((res) => {
