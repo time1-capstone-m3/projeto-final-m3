@@ -13,7 +13,7 @@ export const Container = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     margin-top: 10px;
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem; */
     div {
       display: flex;
       .btn_profile {
@@ -36,7 +36,7 @@ export const Container = styled.div`
     margin-top: 15px;
     ul {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
     }
   }

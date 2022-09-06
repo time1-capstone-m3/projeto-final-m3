@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContainerCardPerfil = styled.div`
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
 
   background-color: #ffffff;
   box-shadow: var(--shadow);

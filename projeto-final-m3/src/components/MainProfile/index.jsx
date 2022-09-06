@@ -12,13 +12,13 @@ const MainProfile = () => {
         <div>Meus Items</div>
         <div>
           <button
-            onClick={() => filterItem("Novo")}
+            onClick={() => filterItem(true)}
             className="btn_profile"
           >
             Recebidos
           </button>
           <button
-            onClick={() => filterItem("Usado")}
+            onClick={() => filterItem(false)}
             className="btn_profile"
           >
             Doados
