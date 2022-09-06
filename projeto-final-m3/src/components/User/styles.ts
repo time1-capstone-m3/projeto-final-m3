@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   margin-top: 9px;
   position: relative;
+
   .container-user {
     margin: 0;
   }
@@ -39,9 +40,9 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 9px;
-    /* margin-top: 9px; */
   }
   .img-user {
+    object-fit: cover;
     width: 55px;
     height: 55px;
     border-radius: 50%;
