@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
+  background-color: #cecece;
   position: fixed;
   bottom: 0;
-  background-color: #cecece;
   width: 100%;
-  height: 3rem;
   text-align: center;
   font-size: 13px;
+  margin-top: 48px;
   p {
     margin: 0;
     padding: 1rem;
     strong {
       margin: 4px;
+    }
+  }
+  @media (max-width: 600px) {
+    p {
+      font-size: 10px;
     }
   }
 `;
