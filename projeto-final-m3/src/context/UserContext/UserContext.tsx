@@ -68,7 +68,10 @@ const UserProvider = ({ children }: UserProps) => {
         navigate("/dashboard");
         console.log("bugfix");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        toast.error('E-mail ou senha inválidos')
+      });
   };
 
   const edit = async (data: EditData) => {
