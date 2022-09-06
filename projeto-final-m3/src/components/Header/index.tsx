@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 
 const Header = () => {
-  const { setSearch, search } = useContext(ProductContext);
+  const { setSearch} = useContext(ProductContext);
 
   return (
     <HeaderContainer>
