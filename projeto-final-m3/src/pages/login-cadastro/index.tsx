@@ -9,6 +9,7 @@ import { HiUserAdd } from "react-icons/hi";
 import { FiLogIn } from "react-icons/fi";
 import { UserContext } from "../../context/UserContext/UserContext";
 import { useNavigate } from "react-router-dom";
+import {motion} from "framer-motion"
 
 function LoginRegister() {
   const { user, loginUser, setLoginUser } = useContext(UserContext);
@@ -23,7 +24,11 @@ function LoginRegister() {
   }, [user]);
 
   return (
-    <>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
       <ContainerPai>
         <Container>
           <img className="LogoInicial" src={logoLogin} alt="Logo da desapega" />
@@ -59,7 +64,7 @@ function LoginRegister() {
         />
       </ContainerPai>
       <Footer />
-    </>
+    </motion.div>
   );
 }
 
