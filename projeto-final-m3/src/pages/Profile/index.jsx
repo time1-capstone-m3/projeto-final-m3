@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import MainProfile from '../../components/MainProfile';
 import { UserContext } from '../../context/UserContext/UserContext';
 import { motion } from 'framer-motion';
+import Footer from '../../components/Footer';
 
 const Profile = () => {
     const { modal } = useContext(UserContext);
@@ -19,6 +20,8 @@ const Profile = () => {
             <Header render={false} />
             <CardPerfil />
             <MainProfile />
+            
+            <Footer />
         </motion.div>
     );
 };
