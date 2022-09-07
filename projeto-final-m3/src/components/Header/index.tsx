@@ -5,26 +5,42 @@ import User from "../../components/User";
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import { BiSearchAlt } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
+interface IRender {
+  render: boolean;
+}
 
-const Header = () => {
+const Header = ({ render }: IRender) => {
   const { setSearch } = useContext(ProductContext);
+  const navigate = useNavigate();
 
   return (
     <HeaderContainer>
-      <div className="header-div">
-        <img src={logo} alt="logo" />
-        <div className="container-search">
-          <input
-            onChange={(event) => setSearch(event.target.value)}
-            type="text"
-            placeholder="Buscar item"
-          />
-          <BiSearchAlt className="icon-search" />
-        </div>
-        <User />
-      </div>
-      <FilterButtons />
+      {render ? (
+        <>
+          <div className="header-div">
+            <img onClick={() => navigate("/")} src={logo} alt="logo" />
+            <div className="container-search">
+              <input
+                onChange={(event) => setSearch(event.target.value)}
+                type="text"
+                placeholder="Buscar item"
+              />
+              <BiSearchAlt className="icon-search" />
+            </div>
+            <User />
+          </div>
+          <FilterButtons />
+        </>
+      ) : (
+        <>
+          <div className="header-div">
+            <img onClick={() => navigate("/")} src={logo} alt="logo" />
+            <User />
+          </div>
+        </>
+      )}
     </HeaderContainer>
   );
 };

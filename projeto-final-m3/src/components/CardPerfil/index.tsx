@@ -1,17 +1,20 @@
 import { UserContext } from "../../context/UserContext/UserContext";
 import { useContext } from "react";
 import { ContainerCardPerfil } from "./style";
-import EditProfile from "../EditProfile";
+import iconeLocation from "../../assets/iconeLocation.png";
+import { BiLocationPlus } from "react-icons/bi";
 
 const CardPerfil = () => {
-  const { user, setModal, modal} = useContext(UserContext);
+  const { user, setModal, modal } = useContext(UserContext);
   return user ? (
     <ContainerCardPerfil>
       <div>
         <p>{user.name}</p>
         <p>{user.email}</p>
         <p>{user.tel}</p>
-        <p>{user.state}</p>
+        <p>
+          {user.state} <BiLocationPlus className="icone-location" />
+        </p>
         <button className="buttonPerfil" onClick={() => setModal(true)}>
           Editar dados
         </button>

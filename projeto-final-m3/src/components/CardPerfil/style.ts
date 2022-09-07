@@ -20,6 +20,9 @@ export const ContainerCardPerfil = styled.div`
 
   div {
     width: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
   img {
@@ -29,8 +32,14 @@ export const ContainerCardPerfil = styled.div`
     border-radius: 50%;
   }
 
+  .icone-location {
+    width: 20px;
+    height: 20px;
+    color: black;
+  }
+
   .buttonPerfil {
-    margin-top: 3rem;
+    margin-top: 1rem;
     height: 3rem;
     font-size: 14px;
     width: 100%;
