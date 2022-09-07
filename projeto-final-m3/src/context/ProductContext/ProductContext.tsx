@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 import { UserContext } from "../UserContext/UserContext";
@@ -75,7 +75,7 @@ function ProductProvider({ children }: ProductProps) {
 
   function filterItem(itemFilter: any) {
     setFilter(itemFilter);
-    console.log(itemFilter);
+    console.log(itemFilter);;
   }
 
   /*  useEffect(() => {
