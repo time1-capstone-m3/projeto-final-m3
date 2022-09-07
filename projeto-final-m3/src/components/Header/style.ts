@@ -10,11 +10,18 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: 730px) {
+    height: 15.5rem;
+  }
+
   img {
     margin: 0;
     width: 163px;
     cursor: pointer;
     transition: 0.2s;
+    @media (max-width: 320px) {
+      width: 50%;
+    }
   }
 
   img:hover {
@@ -27,6 +34,12 @@ export const HeaderContainer = styled.div`
     display: flex;
     height: 50px;
     justify-content: space-between;
+
+    @media (max-width: 730px) {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+    }
 
     input {
       margin: 0;
@@ -41,6 +54,15 @@ export const HeaderContainer = styled.div`
       align-items: center;
       justify-content: center;
       width: 352px;
+
+      @media (max-width: 770px) {
+        margin-left: 2.5rem;
+      }
+
+      @media (max-width: 425px) {
+        width: 100%;
+        margin-left: 0;
+      }
     }
 
     .icon-search {
