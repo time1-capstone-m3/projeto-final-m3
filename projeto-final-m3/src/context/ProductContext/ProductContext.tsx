@@ -8,7 +8,6 @@ import {
   ProductContext,
   IProduct,
   IProductForm,
-  IAddProduct,
 } from "./interfaces";
 
 function ProductProvider({ children }: ProductProps) {
@@ -79,7 +78,7 @@ function ProductProvider({ children }: ProductProps) {
     console.log(itemFilter);
   }
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const newFilter = product.filter((elem) => elem.isDonated === filter);
     setFilterProduct(newFilter);
   }, [product, filter]);
@@ -91,7 +90,7 @@ function ProductProvider({ children }: ProductProps) {
     const filter = product.filter((elem) => elem.userId === String(id));
     console.log(filter);
     setUserProduct(filter);
-  }, []);
+  }, []); */
 
   const addProduct = (id: number) => {
     const userId = localStorage.getItem("@id");

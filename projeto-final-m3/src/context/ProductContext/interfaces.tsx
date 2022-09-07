@@ -32,7 +32,7 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: boolean; // true doado
+  isDonated: string; // true doado
   name: string;
   state: string;
   userId: string;
