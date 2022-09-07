@@ -13,9 +13,11 @@ import {
 import { formSchemaProduct } from "../../validations/Product";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Donate = () => {
   const { loading, setLoading, createProduct } = useContext(ProductContext);
+
   const {
     register,
     handleSubmit,
@@ -31,7 +33,7 @@ const Donate = () => {
     transition={{ duration: 0.5 }}
   >
     <Wrapper>
-      <Header />
+      <Header render={false}/>
       <DonateContainer>
         <section className="left-section">
           <div className="back-to-home">

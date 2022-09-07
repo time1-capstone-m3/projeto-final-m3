@@ -4,16 +4,12 @@ import FormContainer from "../../components/Form";
 import { Wrapper } from "../Dashboard/style";
 import ProductPageContainer from "./style";
 import contentCadastro from "../../assets/content-cadastro-produto.svg";
-import { ProductContext } from "../../context/ProductContext/interfaces";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const ProductPage = () => {
-  const { product } = useContext(ProductContext);
-
   return (
     <Wrapper>
-      <Header />
+      <Header render={false} />
       <ProductPageContainer>
         <section className="left-section">
           <div className="back-to-home">
