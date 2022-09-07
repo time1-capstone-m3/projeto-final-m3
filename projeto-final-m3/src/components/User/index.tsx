@@ -40,7 +40,7 @@ const User = () => {
 
         <div className={isOpen ? "visible" : "invisible"}>
           <Button>
-            <LinkNav to="/">
+            <LinkNav to="/profile">
               <FaUserEdit />
               <p>Acessar perfil</p>
             </LinkNav>

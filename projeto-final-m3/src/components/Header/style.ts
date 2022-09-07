@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.div`
   background-color: #4eab3f;
   width: 100%;
-  height: 11rem;
+  height: auto;
   display: flex;
   gap: 2rem;
   padding: 1rem 2rem;
@@ -13,6 +13,12 @@ export const HeaderContainer = styled.div`
   img {
     margin: 0;
     width: 163px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  img:hover {
+    scale: 1.02;
   }
 
   .header-div {
