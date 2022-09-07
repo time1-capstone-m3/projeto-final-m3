@@ -7,8 +7,8 @@ const ItemProfile = () => {
   const { product } = useContext(ProductContext);
   const id = localStorage.getItem("@id");
 
-  const productUser = product.filter((elem) => String(elem.userId) == id);
-  const productRecebido = product.filter((elem) => elem.isDonatedTo == id);
+  const productUser = product.filter((elem) => String(elem.userId) === id);
+  const productRecebido = product.filter((elem) => elem.isDonatedTo === id);
 
   console.log(productRecebido);
 
