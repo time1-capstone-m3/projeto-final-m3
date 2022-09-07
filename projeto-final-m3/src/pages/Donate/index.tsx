@@ -2,7 +2,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import FormContainer from "../../components/Form";
 import { Wrapper } from "../Dashboard/style";
-import DesapegoContainer from "./style";
+import DonateContainer from "./style";
 import contentCadastro from "../../assets/content-cadastro-produto.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,12 +12,9 @@ import {
 } from "../../context/ProductContext/interfaces";
 import { formSchemaProduct } from "../../validations/Product";
 import { useContext } from "react";
-import userEvent from "@testing-library/user-event";
-import { UserContext } from "../../context/UserContext/UserContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Desapego = () => {
-  const { user } = useContext(UserContext);
+const Donate = () => {
   const { loading, setLoading, createProduct } = useContext(ProductContext);
   const {
     register,
@@ -27,17 +24,22 @@ const Desapego = () => {
     resolver: yupResolver(formSchemaProduct),
   });
 
-  const navigate = useNavigate();
-
   return (
     <Wrapper>
       <Header />
-      <DesapegoContainer>
-        <section className="content-section">
-          <img src={contentCadastro} alt="" />
-          <h1 className="title1 color-green bold">
-            Hora de fazer alguém feliz, desapegando!
-          </h1>
+      <DonateContainer>
+        <section className="left-section">
+          <div className="back-to-home">
+            <Link to={"/"} className="title4 color-grey">
+              Voltar ao início
+            </Link>
+          </div>
+          <div className="content-section">
+            <img src={contentCadastro} alt="" />
+            <h1 className="title1 color-green bold">
+              Hora de fazer alguém feliz, desapegando!
+            </h1>
+          </div>
         </section>
         <section className="form-section">
           <FormContainer>
@@ -117,10 +119,10 @@ const Desapego = () => {
             </form>
           </FormContainer>
         </section>
-      </DesapegoContainer>
+      </DonateContainer>
       <Footer />
     </Wrapper>
   );
 };
 
-export default Desapego;
+export default Donate;
