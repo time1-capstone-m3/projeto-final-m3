@@ -8,6 +8,7 @@ import {
   ProductContext,
   IProduct,
   IProductForm,
+  IAddProduct,
 } from "./interfaces";
 
 function ProductProvider({ children }: ProductProps) {
@@ -75,7 +76,7 @@ function ProductProvider({ children }: ProductProps) {
 
   function filterItem(itemFilter: any) {
     setFilter(itemFilter);
-    console.log(itemFilter)
+    console.log(itemFilter);
   }
 
   useEffect(() => {
@@ -84,13 +85,34 @@ function ProductProvider({ children }: ProductProps) {
   }, [product, filter]);
 
   useEffect(() => {
-    const id = localStorage.getItem("@id")
-    console.log(id)
+    const id = localStorage.getItem("@id");
+    console.log(id);
 
-    const filter = product.filter((elem) => elem.userId === String(id))
-    console.log(filter)
-    setUserProduct(filter)
-  },[])
+    const filter = product.filter((elem) => elem.userId === String(id));
+    console.log(filter);
+    setUserProduct(filter);
+  }, []);
+
+  const addProduct = (id: number) => {
+    const userId = localStorage.getItem("@id");
+    const token = localStorage.getItem("@token");
+
+    console.log(userId, token);
+
+    const body = {
+      isDonated: "true",
+      isDonatedTo: userId,
+    };
+
+    api
+      .patch(`/products/${id}`, body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <ProductContext.Provider
@@ -107,7 +129,8 @@ function ProductProvider({ children }: ProductProps) {
         setProductMain,
         filterItem,
         filterProduct,
-        userProduct
+        userProduct,
+        addProduct,
       }}
     >
       {children}
