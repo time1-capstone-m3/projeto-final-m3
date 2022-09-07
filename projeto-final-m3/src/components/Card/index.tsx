@@ -4,14 +4,19 @@ import { CardContainer } from "./style";
 import { BiLocationPlus } from "react-icons/bi";
 
 const Card = () => {
-  const { arrayFilter, productMain } = useContext(ProductContext);
+  const { arrayFilter, productMain, addProduct } = useContext(ProductContext);
 
   return (
     <>
       {arrayFilter?.map((elem) => {
         if (elem.id !== productMain.id)
           return (
-            <CardContainer key={elem.id}>
+            <CardContainer
+              key={elem.id}
+              onClick={() => {
+                addProduct(elem.id);
+              }}
+            >
               <div className="div-img">
                 <img
                   className="imgProduct"
