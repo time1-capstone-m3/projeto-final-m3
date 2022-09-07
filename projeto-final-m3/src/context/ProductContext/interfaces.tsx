@@ -21,7 +21,11 @@ export interface ProducProviderData {
   filterItem: (any: any) => void;
   filterProduct: IProduct[];
   userProduct: IProduct[];
-  addProduct: (id: number) => void;
+  addProduct: (data: IProduct) => void;
+  productDashboard: IProduct[];
+  setProductDashboard: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  productUser: IProduct[];
+  setProductUser: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
 export const ProductContext = createContext<ProducProviderData>(

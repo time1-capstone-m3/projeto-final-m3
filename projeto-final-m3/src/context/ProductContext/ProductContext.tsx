@@ -25,16 +25,20 @@ function ProductProvider({ children }: ProductProps) {
   const [filter, setFilter] = useState(true);
   const [filterProduct, setFilterProduct] = useState<any>([]);
 
+  const [productUser, setProductUser] = useState<IProduct[]>([]);
+  const [productDashboard, setProductDashboard] = useState<IProduct[]>([]);
+
   useEffect(() => {
     api
       .get("/products")
       .then((res) => {
         setProduct(res.data);
+        setProductDashboard(res.data);
       })
       .catch((err) => console.log(err));
-  }, [product]);
+  }, []);
 
-  const arrayFilter = product.filter(
+  const arrayFilter = productDashboard.filter(
     (product) =>
       product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
       product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
@@ -64,6 +68,7 @@ function ProductProvider({ children }: ProductProps) {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProduct([...product, response.data]);
+      setProductDashboard([...productDashboard, response.data]);
       toast.success("Desapego adicionado com sucesso!");
       navigate("/");
     } catch (error) {
@@ -75,7 +80,7 @@ function ProductProvider({ children }: ProductProps) {
 
   function filterItem(itemFilter: any) {
     setFilter(itemFilter);
-    console.log(itemFilter);;
+    console.log(itemFilter);
   }
 
   /*  useEffect(() => {
@@ -92,8 +97,8 @@ function ProductProvider({ children }: ProductProps) {
     setUserProduct(filter);
   }, []); */
 
-  const addProduct = (id: number) => {
-    const userId = localStorage.getItem("@id");
+  const addProduct = (product: IProduct) => {
+    /* const userId = localStorage.getItem("@id");
     const token = localStorage.getItem("@token");
 
     console.log(userId, token);
@@ -110,7 +115,12 @@ function ProductProvider({ children }: ProductProps) {
         },
       })
       .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); */
+
+    const filter = productDashboard.filter((elem) => elem.id !== product.id);
+    setProductDashboard(filter);
+    setProductUser([...productUser, product]);
+    toast.success("Parabéns!");
   };
 
   return (
@@ -130,6 +140,10 @@ function ProductProvider({ children }: ProductProps) {
         filterProduct,
         userProduct,
         addProduct,
+        productDashboard,
+        setProductDashboard,
+        productUser,
+        setProductUser,
       }}
     >
       {children}

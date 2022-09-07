@@ -1,16 +1,16 @@
-import { createContext, useEffect, useState } from 'react';
-import api from '../../services/api';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { createContext, useEffect, useState } from "react";
+import api from "../../services/api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
-    LoginData,
-    RegisterData,
-    UserProps,
-    IUserProvider,
-    EditData,
-    UserData,
-} from './interfaces';
-import { useNavigate } from 'react-router-dom';
+  LoginData,
+  RegisterData,
+  UserProps,
+  IUserProvider,
+  EditData,
+  UserData,
+} from "./interfaces";
+import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 
@@ -92,6 +92,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const logout = () => {
     localStorage.clear();
+    toast.info("Usuário desconectado!");
     setUser({} as UserData);
   };
 

@@ -14,7 +14,7 @@ const Card = () => {
             <CardContainer
               key={elem.id}
               onClick={() => {
-                addProduct(elem.id);
+                addProduct(elem);
               }}
             >
               <div className="div-img">

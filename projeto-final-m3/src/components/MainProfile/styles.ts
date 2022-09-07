@@ -13,19 +13,8 @@ export const Container = styled.div`
     max-width: 1100px;
     margin: 0 auto;
     margin-top: 10px;
-    /* padding: 1rem 2rem; */
     div {
-      display: flex;
-      .btn_profile {
-        margin-right: 10px;
-        background-color: var(--grey-4);
-        padding: 7px 20px;
-        border-radius: 20px;
-        color: var(--grey-0);
-      }
-      .btn_profile:hover {
-        background-color: var(--color-primary);
-      }
+      margin-top: 10px;
     }
   }
   .card-item {
@@ -38,6 +27,9 @@ export const Container = styled.div`
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
+      li {
+        margin: 0;
+      }
     }
   }
 `;
