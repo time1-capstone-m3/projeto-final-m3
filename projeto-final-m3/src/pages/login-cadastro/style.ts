@@ -5,7 +5,8 @@ export const ContainerPai = styled.div`
   margin: 0 auto 15px;
   
   max-width: 1100px;
-  max-height: 1150px;
+  
+  height: 1100px;
   align-items: flex-start;
 
   .img {
@@ -45,7 +46,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  margin: auto;
+  margin: 56px auto 0;
 
   transition: 0.3s;
 
