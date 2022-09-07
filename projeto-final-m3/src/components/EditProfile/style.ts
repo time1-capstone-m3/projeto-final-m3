@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
 
@@ -16,6 +17,7 @@ const Container = styled.div`
   .modal {
     width: 402px;
     height: auto;
+    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
@@ -24,6 +26,12 @@ const Container = styled.div`
 
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  @media (max-height: 1000px) {
+    .modal{
+      height: 450px;
+    }
   }
 
   .title {

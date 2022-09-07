@@ -25,6 +25,11 @@ const Donate = () => {
   });
 
   return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
     <Wrapper>
       <Header />
       <DonateContainer>
@@ -122,6 +127,7 @@ const Donate = () => {
       </DonateContainer>
       <Footer />
     </Wrapper>
+    </motion.div>
   );
 };
 

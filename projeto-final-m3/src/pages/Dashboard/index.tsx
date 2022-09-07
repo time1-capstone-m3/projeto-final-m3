@@ -9,11 +9,17 @@ import {
   DivProdutos,
   DivCardPrincipal,
 } from "./style";
+import {motion} from "framer-motion"
 
 const Dashboard = () => {
   return (
+    <motion.div
+    initial={{ opacity: 0}}
+    animate={{ opacity: 1}}
+    transition={{ duration: 0.5 }}
+  >
     <Wrapper>
-      <Header />
+      <Header render={true} />
       <Container>
         <DivProdutos>
           <DivCardPrincipal>
@@ -26,6 +32,7 @@ const Dashboard = () => {
       </Container>
       <Footer />
     </Wrapper>
+    </motion.div>
   );
 };
 

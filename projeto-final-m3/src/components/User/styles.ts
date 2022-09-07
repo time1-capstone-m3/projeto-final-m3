@@ -8,6 +8,12 @@ export const Container = styled.div`
 
   width: 13.313rem;
 
+  @media (max-width: 730px) {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+  }
+
   .container-user {
     margin: 0;
     padding: 0;
