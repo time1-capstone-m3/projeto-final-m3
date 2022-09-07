@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/global";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductProvider from "./context/ProductContext/ProductContext";
+import {motion} from 'framer-motion'
 
 
 function App() {

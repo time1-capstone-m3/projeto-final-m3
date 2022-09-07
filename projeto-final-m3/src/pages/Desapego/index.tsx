@@ -15,6 +15,7 @@ import { useContext } from "react";
 import userEvent from "@testing-library/user-event";
 import { UserContext } from "../../context/UserContext/UserContext";
 import { Link, useNavigate } from "react-router-dom";
+import {motion} from "framer-motion"
 
 const Desapego = () => {
   const { user } = useContext(UserContext);
@@ -30,6 +31,11 @@ const Desapego = () => {
   const navigate = useNavigate();
 
   return (
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
     <Wrapper>
       <Header render={false} />
       <DesapegoContainer>
@@ -120,6 +126,7 @@ const Desapego = () => {
       </DesapegoContainer>
       <Footer />
     </Wrapper>
+    </motion.div>
   );
 };
 
