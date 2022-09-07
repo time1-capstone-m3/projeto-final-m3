@@ -4,17 +4,12 @@ import { CardContainer } from "./style";
 import { BiLocationPlus } from "react-icons/bi";
 
 const ItemProfile = () => {
-  const { product } = useContext(ProductContext);
+  const { product, productUser } = useContext(ProductContext);
   const id = localStorage.getItem("@id");
-
-  const productUser = product.filter((elem) => String(elem.userId) === id);
-  const productRecebido = product.filter((elem) => elem.isDonatedTo === id);
-
-  console.log(productRecebido);
 
   return (
     <>
-      {productRecebido.map((elem) => {
+      {productUser.map((elem) => {
         return (
           <CardContainer key={elem.id}>
             <div className="div-img">
