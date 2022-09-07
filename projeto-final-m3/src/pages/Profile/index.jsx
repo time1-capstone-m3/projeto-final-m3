@@ -1,18 +1,17 @@
 import { useContext } from "react";
 import CardPerfil from "../../components/CardPerfil";
 import EditProfile from "../../components/EditProfile";
-import HeaderProfile from "../../components/HeaderProfile";
+import Header from "../../components/Header";
 import MainProfile from "../../components/MainProfile";
 import { UserContext } from "../../context/UserContext/UserContext";
 
 const Profile = () => {
-
   const { modal } = useContext(UserContext);
-  
+
   return (
     <>
       {modal && <EditProfile />}
-      <HeaderProfile />
+      <Header render={false} />
       <CardPerfil />
       <MainProfile />
     </>

@@ -31,7 +31,7 @@ const Desapego = () => {
 
   return (
     <Wrapper>
-      <Header />
+      <Header render={false} />
       <DesapegoContainer>
         <section className="content-section">
           <img src={contentCadastro} alt="" />

@@ -13,7 +13,7 @@ import {
 const Dashboard = () => {
   return (
     <Wrapper>
-      <Header />
+      <Header render={true} />
       <Container>
         <DivProdutos>
           <DivCardPrincipal>
