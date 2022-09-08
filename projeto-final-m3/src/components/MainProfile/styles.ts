@@ -29,7 +29,7 @@ export const Container = styled.div`
       flex-wrap: wrap;
       gap: 20px;
       li {
-        margin: 0;
+        margin: auto;
       }
     }
   }
