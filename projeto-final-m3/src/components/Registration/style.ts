@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 400px;
-  height: 115vh;
+  height: fit-content;
 
   margin: 0px auto;
 

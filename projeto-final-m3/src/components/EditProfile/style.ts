@@ -15,8 +15,8 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.1);
 
   .modal {
-    width: 402px;
-    height: auto;
+    width: 420px;
+    height: 600px;
     overflow-y: auto;
 
     display: flex;
