@@ -32,11 +32,10 @@ const UserProvider = ({ children }: UserProps) => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setAllUsers(res.data);
       })
       .catch((err) => console.log(err));
-  }, [allUsers]);
+  }, [allUsers, productId]);
 
   useEffect(() => {
     const token = localStorage.getItem("@token");

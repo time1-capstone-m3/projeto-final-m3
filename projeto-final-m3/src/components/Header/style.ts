@@ -10,9 +10,12 @@ export const HeaderContainer = styled.header`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 730px) {
-    height: 15.5rem;
+  @media (max-width: 730px){
+
+      height: 15.5rem;
+
   }
+
 
   img {
     margin: 0;

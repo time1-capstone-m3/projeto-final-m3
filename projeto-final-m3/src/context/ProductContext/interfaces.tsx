@@ -18,9 +18,6 @@ export interface ProducProviderData {
   arrayFilter: IProduct[];
   productMain: IProduct;
   setProductMain: (data: IProduct) => void;
-  /* filterItem: (any: any) => void;
-  filterProduct: IProduct[]; */
-  // userProduct: IProduct[];
   addProduct: (data: string | null) => void;
   productDonate: IProduct;
   setProductDonate: (data: IProduct) => void;
@@ -34,7 +31,7 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: boolean; // true doado
+  isDonated: boolean;
   name: string;
   state: string;
   userId: string;
