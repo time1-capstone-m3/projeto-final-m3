@@ -1,11 +1,10 @@
 import { UserContext } from "../../context/UserContext/UserContext";
 import { useContext } from "react";
 import { ContainerCardPerfil } from "./style";
-import iconeLocation from "../../assets/iconeLocation.png";
 import { BiLocationPlus } from "react-icons/bi";
 
 const CardPerfil = () => {
-  const { user, setModal, modal } = useContext(UserContext);
+  const { user, setModal } = useContext(UserContext);
   return user ? (
     <ContainerCardPerfil>
       <div>

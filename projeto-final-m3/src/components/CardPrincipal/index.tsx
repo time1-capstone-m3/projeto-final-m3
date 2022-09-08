@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import CardPrincipalLi from "./style";
 import { BiLocationPlus } from "react-icons/bi";

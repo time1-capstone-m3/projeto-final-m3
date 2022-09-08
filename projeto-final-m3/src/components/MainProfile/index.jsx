@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { ProductContext } from "../../context/ProductContext/interfaces";
 import ItemProfile from "../ItemProfile";
 import { Container } from "./styles";
 
 const MainProfile = () => {
-  const { filterItem } = useContext(ProductContext);
 
   return (
     <Container>

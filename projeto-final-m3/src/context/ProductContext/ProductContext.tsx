@@ -24,10 +24,6 @@ function ProductProvider({ children }: ProductProps) {
 
   const [productDonate, setProductDonate] = useState<IProduct>({} as IProduct);
 
-  // const [userProduct, setUserProduct] = useState<IProduct[]>([]);
-  // const [filter, setFilter] = useState(true);
-  /* const [filterProduct, setFilterProduct] = useState<any>([]); */
-
   useEffect(() => {
     api
       .get("/products")
@@ -40,11 +36,11 @@ function ProductProvider({ children }: ProductProps) {
   const arrayFilter = product.filter(
     (product) =>
       (product.name.toLowerCase().includes(search.toLocaleLowerCase()) &&
-        product.isDonated == false) ||
+        product.isDonated === false) ||
       (product.category
         .toLocaleLowerCase()
         .includes(search.toLocaleLowerCase()) &&
-        product.isDonated == false)
+        product.isDonated === false)
   );
 
   useEffect(() => {
@@ -79,25 +75,6 @@ function ProductProvider({ children }: ProductProps) {
       setLoading(false);
     }
   }
-
-  /*  function filterItem(itemFilter: any) {
-    setFilter(itemFilter);
-    console.log(itemFilter);
-  } */
-
-  /*  useEffect(() => {
-    const newFilter = product.filter((elem) => elem.isDonated === filter);
-    setFilterProduct(newFilter);
-  }, [product, filter]);
-
-  useEffect(() => {
-    const id = localStorage.getItem("@id");
-    console.log(id);
-
-    const filter = product.filter((elem) => elem.userId === String(id));
-    console.log(filter);
-    setUserProduct(filter);
-  }, []); */
 
   const addProduct = (id: string | null) => {
     const userId = localStorage.getItem("@id");
@@ -134,9 +111,6 @@ function ProductProvider({ children }: ProductProps) {
         arrayFilter,
         productMain,
         setProductMain,
-        /* filterItem,
-        filterProduct, */
-        // userProduct,
         addProduct,
         productDonate,
         setProductDonate,

@@ -6,6 +6,8 @@ import MainProfile from '../../components/MainProfile';
 import { UserContext } from '../../context/UserContext/UserContext';
 import { motion } from 'framer-motion';
 import Footer from '../../components/Footer';
+import { Container } from './style';
+
 
 const Profile = () => {
     const { modal } = useContext(UserContext);
@@ -16,11 +18,12 @@ const Profile = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            {modal && <EditProfile />}
-            <Header render={false} />
-            <CardPerfil />
-            <MainProfile />
-            
+            <Header render={false} className="teste" />
+            <Container>
+                {modal && <EditProfile />}
+                <CardPerfil />
+                <MainProfile />
+            </Container>
             <Footer />
         </motion.div>
     );

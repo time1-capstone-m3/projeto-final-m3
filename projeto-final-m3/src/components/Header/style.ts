@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+
+
+
 export const HeaderContainer = styled.div`
   background-color: #4eab3f;
   width: 100%;
@@ -10,9 +13,12 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 730px) {
-    height: 15.5rem;
+  @media (max-width: 730px){
+
+      height: 15.5rem;
+
   }
+
 
   img {
     margin: 0;

@@ -16,6 +16,8 @@ const Header = ({ render }: IRender) => {
   const navigate = useNavigate();
 
   return (
+    
+
     <HeaderContainer>
       {render ? (
         <>
@@ -42,6 +44,7 @@ const Header = ({ render }: IRender) => {
         </>
       )}
     </HeaderContainer>
+
   );
 };
 

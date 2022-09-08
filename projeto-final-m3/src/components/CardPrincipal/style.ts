@@ -28,7 +28,7 @@ export const CardPrincipalLi = styled.li`
   }
 
   .div-img {
-    margin: 20px 0px 15px 0px;
+    margin: 10px 20px 15px 20px;
     img {
       width: 200px;
       height: 200px;

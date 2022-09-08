@@ -7,13 +7,12 @@ export const ProductsList = styled.ul`
   flex-wrap: wrap;
   gap: 2.875rem;
 
-  @media (max-width: 728px) {
-    & {
+    @media (max-width: 728px)  {
       gap: 0px;
       overflow: auto;
       flex-wrap: nowrap;
     }
-  }
+  
 `;
 
 export const Container = styled.section`

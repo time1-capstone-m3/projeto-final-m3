@@ -15,7 +15,6 @@ function LoginRegister() {
   const { user, loginUser, setLoginUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  console.log(user);
 
   useEffect(() => {
     if (user?.name) {
