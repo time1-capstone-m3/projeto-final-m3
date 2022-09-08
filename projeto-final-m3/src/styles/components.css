@@ -77,7 +77,7 @@ button:disabled {
 
 button.bg-dark:hover {
   background-color: var(--grey-3);
-  box-shadow: var(--shadow);
+  /* box-shadow: var(--shadow); */
 }
 
 .bg-green {

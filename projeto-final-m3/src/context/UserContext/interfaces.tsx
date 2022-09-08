@@ -13,6 +13,7 @@ export interface IUserProvider {
   setLoginUser: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  allUsers: UserData[];
 }
 export interface UserData {
   email: string;
