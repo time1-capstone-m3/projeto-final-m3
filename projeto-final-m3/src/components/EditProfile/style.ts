@@ -28,7 +28,7 @@ const Container = styled.div`
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-  @media (max-height: 1000px) {
+  @media (max-height: 600px) {
     .modal{
       height: 450px;
     }

@@ -17,6 +17,7 @@ import { motion } from "framer-motion";
 
 const Donate = () => {
   const { loading, setLoading, createProduct } = useContext(ProductContext);
+
   const {
     register,
     handleSubmit,

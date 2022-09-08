@@ -4,6 +4,7 @@ import { Wrapper } from "../Dashboard/style";
 import ProductPageContainer from "./style";
 import contentDesapego from "../../assets/content-desapego.svg";
 import { ProductContext } from "../../context/ProductContext/interfaces";
+import contentCadastro from "../../assets/content-cadastro-produto.svg";
 import { Link } from "react-router-dom";
 import { BiLocationPlus } from "react-icons/bi";
 import { useContext } from "react";
@@ -12,7 +13,6 @@ import { UserContext } from "../../context/UserContext/UserContext";
 const ProductPage = () => {
   const { product } = useContext(ProductContext);
   const { allUsers } = useContext(UserContext);
-
   return (
     <Wrapper>
       <Header render={false} />

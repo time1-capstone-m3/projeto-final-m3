@@ -26,16 +26,20 @@ function ProductProvider({ children }: ProductProps) {
   const [filter, setFilter] = useState(true);
   const [filterProduct, setFilterProduct] = useState<any>([]);
 
+  const [productUser, setProductUser] = useState<IProduct[]>([]);
+  const [productDashboard, setProductDashboard] = useState<IProduct[]>([]);
+
   useEffect(() => {
     api
       .get("/products")
       .then((res) => {
         setProduct(res.data);
+        setProductDashboard(res.data);
       })
       .catch((err) => console.log(err));
-  }, [product]);
+  }, []);
 
-  const arrayFilter = product.filter(
+  const arrayFilter = productDashboard.filter(
     (product) =>
       product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
       product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
@@ -65,6 +69,7 @@ function ProductProvider({ children }: ProductProps) {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProduct([...product, response.data]);
+      setProductDashboard([...productDashboard, response.data]);
       toast.success("Desapego adicionado com sucesso!");
       navigate("/");
     } catch (error) {
@@ -79,7 +84,7 @@ function ProductProvider({ children }: ProductProps) {
     console.log(itemFilter);
   }
 
-  useEffect(() => {
+  /*  useEffect(() => {
     const newFilter = product.filter((elem) => elem.isDonated === filter);
     setFilterProduct(newFilter);
   }, [product, filter]);
@@ -91,7 +96,33 @@ function ProductProvider({ children }: ProductProps) {
     const filter = product.filter((elem) => elem.userId === String(id));
     console.log(filter);
     setUserProduct(filter);
-  }, []);
+  }, []); */
+
+  const addProduct = (product: IProduct) => {
+    /* const userId = localStorage.getItem("@id");
+    const token = localStorage.getItem("@token");
+
+    console.log(userId, token);
+
+    const body = {
+      isDonated: "true",
+      isDonatedTo: userId,
+    };
+
+    api
+      .patch(`/products/${id}`, body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err)); */
+
+    const filter = productDashboard.filter((elem) => elem.id !== product.id);
+    setProductDashboard(filter);
+    setProductUser([...productUser, product]);
+    toast.success("Parabéns!");
+  };
 
   return (
     <ProductContext.Provider
@@ -109,6 +140,11 @@ function ProductProvider({ children }: ProductProps) {
         filterItem,
         filterProduct,
         userProduct,
+        addProduct,
+        productDashboard,
+        setProductDashboard,
+        productUser,
+        setProductUser,
       }}
     >
       {children}

@@ -107,6 +107,7 @@ const UserProvider = ({ children }: UserProps) => {
 
   const logout = () => {
     localStorage.clear();
+    toast.info("Usuário desconectado!");
     setUser({} as UserData);
   };
 

@@ -10,20 +10,6 @@ const MainProfile = () => {
     <Container>
       <div className="header">
         <div>Meus Items</div>
-        <div>
-          <button
-            onClick={() => filterItem(true)}
-            className="btn_profile"
-          >
-            Recebidos
-          </button>
-          <button
-            onClick={() => filterItem(false)}
-            className="btn_profile"
-          >
-            Doados
-          </button>
-        </div>
       </div>
       <div className="card-item">
         <ul>
