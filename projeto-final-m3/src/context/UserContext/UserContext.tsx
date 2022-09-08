@@ -16,24 +16,27 @@ export const UserContext = createContext<IUserProvider>({} as IUserProvider);
 
 const UserProvider = ({ children }: UserProps) => {
   const [user, setUser] = useState<UserData | null>(null);
-  const [allUsers, setAllUsers] = useState<UserData[]>([]);
+  const [allUsers, setAllUsers] = useState<UserData>();
   const [loginUser, setLoginUser] = useState(true);
   const [modal, setModal] = useState(false);
   const navigate = useNavigate();
 
+  const productId = localStorage.getItem("@productId");
+
   useEffect(() => {
     const token = localStorage.getItem("@token");
     api
-      .get(`/users/`, {
+      .get(`/users/${productId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
+        console.log(res.data);
         setAllUsers(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [allUsers]);
 
   useEffect(() => {
     const token = localStorage.getItem("@token");

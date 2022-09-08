@@ -10,7 +10,6 @@ const RoutesMain = () => {
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/login" element={<LoginRegister />} />
-      <Route path="/product/id" />
       <Route path="/profile" element={<Profile />} />
       <Route path="/donate" element={<Donate />} />
       <Route path="/product" element={<ProductPage />} />

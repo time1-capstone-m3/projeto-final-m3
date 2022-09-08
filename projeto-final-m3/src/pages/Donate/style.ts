@@ -27,9 +27,18 @@ const DonateContainer = styled.main`
     }
   }
 
+  .button-home {
+    color: var(--color-primary);
+    transition: 0.2s;
+  }
+
+  .button-home:hover {
+    scale: 1.02;
+  }
+
   @media (max-width: 768px) {
     margin: 3rem auto;
-    flex-direction:  column;
+    flex-direction: column;
     .content-section {
       display: none;
     }

@@ -27,12 +27,18 @@ export const ContainerButtons = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    /* padding-left: 10px; */
   }
 
   button {
     background: none;
     color: #5f5d5d;
     padding: 0;
+  }
+
+  .btn-filter:focus {
+    color: black;
+    font-weight: 500;
   }
 
   .button-donate {

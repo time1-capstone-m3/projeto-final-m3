@@ -2,9 +2,13 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import { CardContainer } from "./style";
 import { BiLocationPlus } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-  const { arrayFilter, productMain, addProduct } = useContext(ProductContext);
+  const { arrayFilter, productMain, setProductDonate } =
+    useContext(ProductContext);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -14,7 +18,9 @@ const Card = () => {
             <CardContainer
               key={elem.id}
               onClick={() => {
-                addProduct(elem);
+                localStorage.setItem("@productId", String(elem.id));
+                setProductDonate(elem);
+                navigate("/product");
               }}
             >
               <div className="div-img">

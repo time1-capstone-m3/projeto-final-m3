@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import { CardContainer } from "./style";
 import { BiLocationPlus } from "react-icons/bi";
+import Card from "../Card";
 
 const ItemProfile = () => {
-  const { product, productUser } = useContext(ProductContext);
+  const { product } = useContext(ProductContext);
   const id = localStorage.getItem("@id");
+
+  const productUser = product.filter((elem) => elem.isDonatedTo === id);
 
   return (
     <>
@@ -19,9 +22,7 @@ const ItemProfile = () => {
                 alt="imagem do produto"
               />
             </div>
-            <div
-              className={elem.condition === "Novo" ? "div-text" : "div-text-1"}
-            >
+            <div className="div-text">
               <p className="title3">{elem.name}</p>
               <p className="state title2">{elem.condition}</p>
               <div className="div-loc-icon">

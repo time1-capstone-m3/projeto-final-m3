@@ -12,7 +12,7 @@ import {
 } from "../../context/ProductContext/interfaces";
 import { formSchemaProduct } from "../../validations/Product";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Donate = () => {
@@ -26,6 +26,8 @@ const Donate = () => {
     resolver: yupResolver(formSchemaProduct),
   });
 
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -37,9 +39,9 @@ const Donate = () => {
         <DonateContainer>
           <section className="left-section">
             <div className="back-to-home">
-              <Link to={"/"} className="title4 color-grey">
+              <button className="button-home" onClick={() => navigate("/")}>
                 Voltar ao início
-              </Link>
+              </button>
             </div>
             <div className="content-section">
               <img src={contentCadastro} alt="" />

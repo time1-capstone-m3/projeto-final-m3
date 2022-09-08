@@ -22,27 +22,29 @@ function ProductProvider({ children }: ProductProps) {
   const navigate = useNavigate();
   const [productMain, setProductMain] = useState<IProduct>({} as IProduct);
 
-  const [userProduct, setUserProduct] = useState<IProduct[]>([]);
-  const [filter, setFilter] = useState(true);
-  const [filterProduct, setFilterProduct] = useState<any>([]);
+  const [productDonate, setProductDonate] = useState<IProduct>({} as IProduct);
 
-  const [productUser, setProductUser] = useState<IProduct[]>([]);
-  const [productDashboard, setProductDashboard] = useState<IProduct[]>([]);
+  // const [userProduct, setUserProduct] = useState<IProduct[]>([]);
+  // const [filter, setFilter] = useState(true);
+  /* const [filterProduct, setFilterProduct] = useState<any>([]); */
 
   useEffect(() => {
     api
       .get("/products")
       .then((res) => {
         setProduct(res.data);
-        setProductDashboard(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [product]);
 
-  const arrayFilter = productDashboard.filter(
+  const arrayFilter = product.filter(
     (product) =>
-      product.name.toLowerCase().includes(search.toLocaleLowerCase()) ||
-      product.category.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      (product.name.toLowerCase().includes(search.toLocaleLowerCase()) &&
+        product.isDonated == false) ||
+      (product.category
+        .toLocaleLowerCase()
+        .includes(search.toLocaleLowerCase()) &&
+        product.isDonated == false)
   );
 
   useEffect(() => {
@@ -69,7 +71,6 @@ function ProductProvider({ children }: ProductProps) {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProduct([...product, response.data]);
-      setProductDashboard([...productDashboard, response.data]);
       toast.success("Desapego adicionado com sucesso!");
       navigate("/");
     } catch (error) {
@@ -79,10 +80,10 @@ function ProductProvider({ children }: ProductProps) {
     }
   }
 
-  function filterItem(itemFilter: any) {
+  /*  function filterItem(itemFilter: any) {
     setFilter(itemFilter);
     console.log(itemFilter);
-  }
+  } */
 
   /*  useEffect(() => {
     const newFilter = product.filter((elem) => elem.isDonated === filter);
@@ -98,8 +99,8 @@ function ProductProvider({ children }: ProductProps) {
     setUserProduct(filter);
   }, []); */
 
-  const addProduct = (product: IProduct) => {
-    /* const userId = localStorage.getItem("@id");
+  const addProduct = (id: string | null) => {
+    const userId = localStorage.getItem("@id");
     const token = localStorage.getItem("@token");
 
     console.log(userId, token);
@@ -116,11 +117,7 @@ function ProductProvider({ children }: ProductProps) {
         },
       })
       .then((res) => console.log(res))
-      .catch((err) => console.log(err)); */
-
-    const filter = productDashboard.filter((elem) => elem.id !== product.id);
-    setProductDashboard(filter);
-    setProductUser([...productUser, product]);
+      .catch((err) => console.log(err));
     toast.success("Parabéns!");
   };
 
@@ -137,14 +134,12 @@ function ProductProvider({ children }: ProductProps) {
         arrayFilter,
         productMain,
         setProductMain,
-        filterItem,
-        filterProduct,
-        userProduct,
+        /* filterItem,
+        filterProduct, */
+        // userProduct,
         addProduct,
-        productDashboard,
-        setProductDashboard,
-        productUser,
-        setProductUser,
+        productDonate,
+        setProductDonate,
       }}
     >
       {children}

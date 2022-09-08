@@ -18,14 +18,12 @@ export interface ProducProviderData {
   arrayFilter: IProduct[];
   productMain: IProduct;
   setProductMain: (data: IProduct) => void;
-  filterItem: (any: any) => void;
-  filterProduct: IProduct[];
-  userProduct: IProduct[];
-  addProduct: (data: IProduct) => void;
-  productDashboard: IProduct[];
-  setProductDashboard: React.Dispatch<React.SetStateAction<IProduct[]>>;
-  productUser: IProduct[];
-  setProductUser: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  /* filterItem: (any: any) => void;
+  filterProduct: IProduct[]; */
+  // userProduct: IProduct[];
+  addProduct: (data: string | null) => void;
+  productDonate: IProduct;
+  setProductDonate: (data: IProduct) => void;
 }
 
 export const ProductContext = createContext<ProducProviderData>(
@@ -36,7 +34,7 @@ export interface IProduct {
   condition: string;
   id: number;
   image: string;
-  isDonated: string; // true doado
+  isDonated: boolean; // true doado
   name: string;
   state: string;
   userId: string;
