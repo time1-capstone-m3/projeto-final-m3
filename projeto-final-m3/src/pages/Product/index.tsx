@@ -5,23 +5,27 @@ import ProductPageContainer from "./style";
 import contentDesapego from "../../assets/content-desapego.svg";
 import { ProductContext } from "../../context/ProductContext/interfaces";
 import contentCadastro from "../../assets/content-cadastro-produto.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiLocationPlus } from "react-icons/bi";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext/UserContext";
 
 const ProductPage = () => {
-  const { product } = useContext(ProductContext);
+  const { product, productDonate, addProduct } = useContext(ProductContext);
   const { allUsers } = useContext(UserContext);
+  const idProduct = localStorage.getItem("@productId");
+
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Header render={false} />
       <ProductPageContainer>
         <section className="left-section">
           <div className="back-to-home">
-            <Link to={"/"} className="title4 color-grey">
-              Voltar ao início
-            </Link>
+            <button className="button-home" onClick={() => navigate("/")}>
+              Voltar ao ínicio
+            </button>
           </div>
           <div className="content-section">
             <img src={contentDesapego} alt="" />
@@ -33,27 +37,24 @@ const ProductPage = () => {
         <section className="product-section shadow bg-white">
           <div className="details-top">
             <div className="image-container">
-              <img src={product[1].image} alt="" />
+              <img src={productDonate?.image} alt="" />
             </div>
             <div className="infos-container">
-              <h2 className="title2 bold">{product[1].name.toUpperCase()}</h2>
+              <h2 className="title2 bold">
+                {productDonate?.name.toUpperCase()}
+              </h2>
               <span className="title3 semibold">
-                {product[1].state} <BiLocationPlus size={16} />
+                {productDonate?.state} <BiLocationPlus size={16} />
               </span>
               <h3 className="title3 bold">Descrição</h3>
-              <p className="title4">{product[1].description}</p>
+              <p className="title4">{productDonate?.description}</p>
             </div>
           </div>
           <div className="details-bottom">
-            <div>
-              <h3 className="title3">
-                Por: {allUsers[Number(product[1].userId)].name}
-              </h3>
-              <h4 className="title4">
-                Telefone: {allUsers[Number(product[1].userId)].tel}
-              </h4>
-            </div>
-            <button className="bg-dark title2 color-light semibold">
+            <button
+              onClick={() => addProduct(idProduct)}
+              className="bg-dark title2 color-light semibold"
+            >
               Pegar item
             </button>
           </div>

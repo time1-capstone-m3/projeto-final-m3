@@ -27,9 +27,18 @@ const PeoductPageContainer = styled.main`
     }
   }
 
+  .button-home {
+    color: var(--color-primary);
+    transition: 0.2s;
+  }
+
+  .button-home:hover {
+    scale: 1.02;
+  }
+
   @media (max-width: 768px) {
     margin: 3rem auto;
-    flex-direction:  column;
+    flex-direction: column;
     .content-section {
       display: none;
     }
@@ -55,7 +64,7 @@ const PeoductPageContainer = styled.main`
       display: flex;
       justify-content: space-between;
       gap: 6px;
-  
+
       .image-container {
         max-width: 267px;
         height: 100%;
@@ -66,14 +75,14 @@ const PeoductPageContainer = styled.main`
           object-fit: cover;
         }
       }
-  
+
       .infos-container {
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 6px;
-        
+
         span {
           margin-bottom: 15px;
         }

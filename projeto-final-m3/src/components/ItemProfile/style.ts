@@ -43,6 +43,10 @@ export const CardContainer = styled.li`
       margin-left: 1rem;
       font-size: 15px;
       color: #ffffff;
+      max-width: 10ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .state {
       color: var(--grey-3);

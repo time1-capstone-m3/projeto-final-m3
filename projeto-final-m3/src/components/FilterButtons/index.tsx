@@ -14,15 +14,34 @@ const FilterButtons = () => {
     <>
       <ContainerButtons>
         <div>
-          <button autoFocus onClick={() => setSearch("")}>
+          <button
+            className="btn-filter"
+            autoFocus
+            onClick={() => setSearch("")}
+          >
             Todos
           </button>
-          <button onClick={() => setSearch("Computadores")}>
+          <button
+            className="btn-filter"
+            onClick={() => setSearch("Computadores")}
+          >
             Computadores
           </button>
-          <button onClick={() => setSearch("Smartphones")}>Smartphones</button>
-          <button onClick={() => setSearch("Acessórios")}>Acessórios</button>
-          <button onClick={() => setSearch("Outros")}>Outros</button>
+          <button
+            className="btn-filter"
+            onClick={() => setSearch("Smartphones")}
+          >
+            Smartphones
+          </button>
+          <button
+            className="btn-filter"
+            onClick={() => setSearch("Acessórios")}
+          >
+            Acessórios
+          </button>
+          <button className="btn-filter" onClick={() => setSearch("Outros")}>
+            Outros
+          </button>
         </div>
         <button
           className="button-donate"
