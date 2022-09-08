@@ -95,7 +95,8 @@ function ProductProvider({ children }: ProductProps) {
       })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    toast.success("Parabéns!");
+    toast.success("Aproveite seu produto!");
+    navigate("/");
   };
 
   return (
