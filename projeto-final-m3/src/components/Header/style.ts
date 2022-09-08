@@ -18,8 +18,10 @@ export const HeaderContainer = styled.header`
 
 
   img {
+    object-fit: cover;
     margin: 0;
     width: 163px;
+    height: 43px;
     cursor: pointer;
     transition: 0.2s;
     @media (max-width: 320px) {
